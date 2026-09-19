@@ -12,7 +12,7 @@ python scaffold.py
 
 - [x] **1.** make_empty_board
 - [x] **2.** column_top_row
-- [ ] **3.** drop_piece
+- [x] **3.** drop_piece
 - [ ] **4.** column_full
 - [ ] **5.** valid_moves
 - [ ] **6.** four_in_a_row_horizontal

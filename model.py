@@ -24,8 +24,17 @@ def column_top_row(board, column):
     else:
         return empty_idxs[-1]
 
-# Step 3 - drop_piece (not yet solved)
-# TODO: implement
+# Step 3 - drop_piece
+def drop_piece(board, column, player):
+    # TODO: place `player` in the lowest empty row of `column` and return the new board
+    free_row = column_top_row(board, column)
+    if free_row != -1:
+        # Empty row in that column available
+        new_board = board.copy()
+        new_board[free_row][column] = player
+        return new_board
+    else:
+        raise ValueError
 
 # Step 4 - column_full (not yet solved)
 # TODO: implement
