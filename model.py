@@ -85,8 +85,25 @@ def four_in_a_row_vertical(board):
                         return 2
     return 0
 
-# Step 8 - four_in_a_row_diagonal_down_right (not yet solved)
-# TODO: implement
+# Step 8 - four_in_a_row_diagonal_down_right
+def four_in_a_row_diagonal_down_right(board):
+    # TODO: scan every down-right diagonal of the 6x7 board for four matching non-zero pieces
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # Valid diagonal range offset from main top left to bottom right is [-2, 3], where 0 is main
+    for i in range(-2, 4):
+        diag = board.diagonal(i)
+        for j in range(len(diag)-3):
+            if np.all(diag[j:j+4] == diag[j]) and diag[j] != 0:
+                if diag[j] == 1:
+                    return 1
+                else:
+                    return 2
+    return 0
 
 # Step 9 - four_in_a_row_diagonal_up_right (not yet solved)
 # TODO: implement
