@@ -11,7 +11,7 @@ python scaffold.py
 ## Steps
 
 - [x] **1.** make_empty_board
-- [ ] **2.** column_top_row
+- [x] **2.** column_top_row
 - [ ] **3.** drop_piece
 - [ ] **4.** column_full
 - [ ] **5.** valid_moves
