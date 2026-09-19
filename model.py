@@ -145,8 +145,16 @@ def board_is_full(board):
     # TODO: return True when no column has an empty slot left
     return np.all(board[0, :] != 0)
 
-# Step 12 - is_terminal (not yet solved)
-# TODO: implement
+# Step 12 - is_terminal
+def is_terminal(board):
+    # TODO: return (done, winner) using check_winner and board_is_full.
+    winner = check_winner(board)
+    if winner:
+        return (True, winner)
+    elif board_is_full(board):
+        return (True, 0)
+    else: 
+        return (False, 0)
 
 # Step 13 - other_player (not yet solved)
 # TODO: implement

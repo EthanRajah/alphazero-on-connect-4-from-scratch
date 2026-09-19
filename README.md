@@ -21,7 +21,7 @@ python scaffold.py
 - [x] **9.** four_in_a_row_diagonal_up_right
 - [x] **10.** check_winner
 - [x] **11.** board_is_full
-- [ ] **12.** is_terminal
+- [x] **12.** is_terminal
 - [ ] **13.** other_player
 - [ ] **14.** step_env
 - [ ] **15.** encode_board
