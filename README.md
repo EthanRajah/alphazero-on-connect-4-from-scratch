@@ -18,7 +18,7 @@ python scaffold.py
 - [x] **6.** four_in_a_row_horizontal
 - [x] **7.** four_in_a_row_vertical
 - [x] **8.** four_in_a_row_diagonal_down_right
-- [ ] **9.** four_in_a_row_diagonal_up_right
+- [x] **9.** four_in_a_row_diagonal_up_right
 - [ ] **10.** check_winner
 - [ ] **11.** board_is_full
 - [ ] **12.** is_terminal

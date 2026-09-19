@@ -105,8 +105,27 @@ def four_in_a_row_diagonal_down_right(board):
                     return 2
     return 0
 
-# Step 9 - four_in_a_row_diagonal_up_right (not yet solved)
-# TODO: implement
+# Step 9 - four_in_a_row_diagonal_up_right
+def four_in_a_row_diagonal_up_right(board):
+    # TODO: scan every up-right diagonal for four consecutive matching non-zero pieces
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # 0 0 0 0 0 0 0
+    # Valid diagonal range offset from main top left to bottom right is [-2, 3], where 0 is main
+    flipped_board = np.flipud(board)
+    for i in range(-2, 4):
+        # flipud does a vertical flip
+        diag = flipped_board.diagonal(i)
+        for j in range(len(diag)-3):
+            if np.all(diag[j:j+4] == diag[j]) and diag[j] != 0:
+                if diag[j] == 1:
+                    return 1
+                else:
+                    return 2
+    return 0
 
 # Step 10 - check_winner (not yet solved)
 # TODO: implement
