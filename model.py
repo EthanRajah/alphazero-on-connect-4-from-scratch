@@ -71,8 +71,19 @@ def four_in_a_row_horizontal(board):
                         return 2
     return 0
 
-# Step 7 - four_in_a_row_vertical (not yet solved)
-# TODO: implement
+# Step 7 - four_in_a_row_vertical
+def four_in_a_row_vertical(board):
+    # TODO: scan every column for four consecutive matching non-zero pieces vertically
+    for col_idx in range (len(board[0])):
+        col = board[:,col_idx]
+        for cell_idx in range(len(col)):
+            if ((cell_idx + 3) < len(col)):
+                if len(set(col[cell_idx:cell_idx+4])) == 1:
+                    if col[cell_idx] == 1:
+                        return 1
+                    elif col[cell_idx] == 2:
+                        return 2
+    return 0
 
 # Step 8 - four_in_a_row_diagonal_down_right (not yet solved)
 # TODO: implement
