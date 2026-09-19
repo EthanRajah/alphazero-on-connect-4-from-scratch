@@ -22,7 +22,7 @@ python scaffold.py
 - [x] **10.** check_winner
 - [x] **11.** board_is_full
 - [x] **12.** is_terminal
-- [ ] **13.** other_player
+- [x] **13.** other_player
 - [ ] **14.** step_env
 - [ ] **15.** encode_board
 - [ ] **16.** board_to_torch_tensor
