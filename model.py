@@ -140,8 +140,13 @@ def check_winner(board):
     else:
         return 0
 
-# Step 11 - board_is_full (not yet solved)
-# TODO: implement
+# Step 11 - board_is_full
+def board_is_full(board):
+    # TODO: return True when no column has an empty slot left
+    for col in range(len(board[0])):
+        if board[0, col] == 0:
+            return False
+    return True
 
 # Step 12 - is_terminal (not yet solved)
 # TODO: implement

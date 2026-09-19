@@ -20,7 +20,7 @@ python scaffold.py
 - [x] **8.** four_in_a_row_diagonal_down_right
 - [x] **9.** four_in_a_row_diagonal_up_right
 - [x] **10.** check_winner
-- [ ] **11.** board_is_full
+- [x] **11.** board_is_full
 - [ ] **12.** is_terminal
 - [ ] **13.** other_player
 - [ ] **14.** step_env
