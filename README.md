@@ -1,2 +1,73 @@
-# alphazero-on-connect-4-from-scratch
+# AlphaZero on Connect-4 from Scratch
+
 Build a complete AlphaZero-style agent for Connect-4, from the bare game rules to a self-play training loop that pits a policy-value network guided by PUCT Monte Carlo Tree Search against itself. Along the way you implement the board engine, neural network, MCTS, self-play data generation, training, and evaluation against baselines.
+
+## How to run
+
+```bash
+python scaffold.py
+```
+
+## Steps
+
+- [x] **1.** make_empty_board
+- [ ] **2.** column_top_row
+- [ ] **3.** drop_piece
+- [ ] **4.** column_full
+- [ ] **5.** valid_moves
+- [ ] **6.** four_in_a_row_horizontal
+- [ ] **7.** four_in_a_row_vertical
+- [ ] **8.** four_in_a_row_diagonal_down_right
+- [ ] **9.** four_in_a_row_diagonal_up_right
+- [ ] **10.** check_winner
+- [ ] **11.** board_is_full
+- [ ] **12.** is_terminal
+- [ ] **13.** other_player
+- [ ] **14.** step_env
+- [ ] **15.** encode_board
+- [ ] **16.** board_to_torch_tensor
+- [ ] **17.** init_conv_backbone
+- [ ] **18.** init_policy_head
+- [ ] **19.** init_value_head
+- [ ] **20.** build_policy_value_net
+- [ ] **21.** policy_value_forward
+- [ ] **22.** action_mask
+- [ ] **23.** masked_policy_logits
+- [ ] **24.** masked_log_softmax
+- [ ] **25.** sample_action_from_policy
+- [ ] **26.** greedy_action_from_policy
+- [ ] **27.** make_mcts_node
+- [ ] **28.** node_q_value
+- [ ] **29.** ucb_score
+- [ ] **30.** select_best_child
+- [ ] **31.** select_leaf
+- [ ] **32.** evaluate_with_network
+- [ ] **33.** expand_node
+- [ ] **34.** backup_value
+- [ ] **35.** run_one_simulation
+- [ ] **36.** run_mcts
+- [ ] **37.** visit_count_policy
+- [ ] **38.** mcts_choose_action
+- [ ] **39.** record_self_play_step
+- [ ] **40.** play_self_play_game
+- [ ] **41.** assign_value_targets
+- [ ] **42.** generate_self_play_batch
+- [ ] **43.** value_loss_mse
+- [ ] **44.** policy_loss_cross_entropy
+- [ ] **45.** l2_regularization_loss
+- [ ] **46.** combined_loss
+- [ ] **47.** encode_batch_states
+- [ ] **48.** iterate_minibatches
+- [ ] **49.** training_step
+- [ ] **50.** training_epoch
+- [ ] **51.** self_play_iteration
+- [ ] **52.** train_loop
+- [ ] **53.** random_policy_action
+- [ ] **54.** greedy_agent_action
+- [ ] **55.** play_one_match
+- [ ] **56.** match_win_rate
+- [ ] **57.** evaluate_against_random
+
+---
+
+Built on Deep-ML.
