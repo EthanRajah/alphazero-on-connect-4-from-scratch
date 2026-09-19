@@ -36,8 +36,16 @@ def drop_piece(board, column, player):
     else:
         raise ValueError
 
-# Step 4 - column_full (not yet solved)
-# TODO: implement
+# Step 4 - column_full
+import numpy as np
+
+def column_full(board, column):
+    """Return True if `column` has no empty rows left."""
+    # TODO: check whether the column can still accept a piece
+    if column_top_row(board, column) == -1:
+        return True
+    else:
+        return False
 
 # Step 5 - valid_moves (not yet solved)
 # TODO: implement
