@@ -57,8 +57,19 @@ def valid_moves(board):
             valid_arr.append(col)
     return valid_arr
 
-# Step 6 - four_in_a_row_horizontal (not yet solved)
-# TODO: implement
+# Step 6 - four_in_a_row_horizontal
+def four_in_a_row_horizontal(board):
+    # TODO: scan every row for four consecutive matching non-zero pieces horizontally
+    for row in board:
+        # Iterate through the row looking for repetitions of 4 1s or 2s
+        for cell_idx in range(len(row)):
+            if ((cell_idx + 3) < len(row)):
+                if len(set(row[cell_idx:cell_idx+4])) == 1:
+                    if row[cell_idx] == 1:
+                        return 1
+                    elif row[cell_idx] == 2:
+                        return 2
+    return 0
 
 # Step 7 - four_in_a_row_vertical (not yet solved)
 # TODO: implement

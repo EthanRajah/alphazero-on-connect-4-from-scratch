@@ -15,7 +15,7 @@ python scaffold.py
 - [x] **3.** drop_piece
 - [x] **4.** column_full
 - [x] **5.** valid_moves
-- [ ] **6.** four_in_a_row_horizontal
+- [x] **6.** four_in_a_row_horizontal
 - [ ] **7.** four_in_a_row_vertical
 - [ ] **8.** four_in_a_row_diagonal_down_right
 - [ ] **9.** four_in_a_row_diagonal_up_right
