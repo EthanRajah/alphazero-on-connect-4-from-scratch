@@ -127,8 +127,18 @@ def four_in_a_row_diagonal_up_right(board):
                     return 2
     return 0
 
-# Step 10 - check_winner (not yet solved)
-# TODO: implement
+# Step 10 - check_winner
+import numpy as np
+
+def check_winner(board):
+    """Return 1 or 2 if that player has four in a row, else 0."""
+    # TODO: combine the four direction scans and return the first non-zero result
+    if (four_in_a_row_horizontal(board) == 1 or four_in_a_row_vertical(board) == 1 or four_in_a_row_diagonal_up_right(board) == 1 or four_in_a_row_diagonal_down_right(board) == 1):
+        return 1
+    elif (four_in_a_row_horizontal(board) == 2 or four_in_a_row_vertical(board) == 2 or four_in_a_row_diagonal_up_right(board) == 2 or four_in_a_row_diagonal_down_right(board) == 2):
+        return 2
+    else:
+        return 0
 
 # Step 11 - board_is_full (not yet solved)
 # TODO: implement
