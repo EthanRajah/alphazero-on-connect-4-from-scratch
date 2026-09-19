@@ -25,7 +25,7 @@ python scaffold.py
 - [x] **13.** other_player
 - [x] **14.** step_env
 - [x] **15.** encode_board
-- [ ] **16.** board_to_torch_tensor
+- [x] **16.** board_to_torch_tensor
 - [ ] **17.** init_conv_backbone
 - [ ] **18.** init_policy_head
 - [ ] **19.** init_value_head

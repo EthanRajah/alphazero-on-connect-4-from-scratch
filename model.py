@@ -184,8 +184,12 @@ def encode_board(board, current_player):
         enc[0] = np.where(enc[0] == 2.0, 0.0, enc[0])
     return enc
 
-# Step 16 - board_to_torch_tensor (not yet solved)
-# TODO: implement
+# Step 16 - board_to_torch_tensor
+def board_to_torch_tensor(board, current_player):
+    # TODO: encode the board and return it as a float32 torch tensor of shape (1, 2, 6, 7).
+    enc = encode_board(board, current_player)
+    torch_enc = torch.from_numpy(enc).unsqueeze(dim=0)
+    return torch_enc
 
 # Step 17 - init_conv_backbone (not yet solved)
 # TODO: implement
