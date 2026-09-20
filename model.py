@@ -235,8 +235,29 @@ def init_value_head(hidden_channels=16):
     )
     return value_head
 
-# Step 20 - build_policy_value_net (not yet solved)
-# TODO: implement
+# Step 20 - build_policy_value_net
+import torch
+import torch.nn as nn
+
+def build_policy_value_net(in_channels=2, hidden_channels=16, num_columns=7):
+    """Compose backbone + policy head + value head into one nn.Module."""
+    # TODO: build an nn.Module with backbone, policy_head, value_head attributes
+    class Connect4Net(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.backbone = init_conv_backbone(in_channels, hidden_channels)
+            self.policy_head = init_policy_head(hidden_channels, num_columns) # get raw logits over actions
+            self.value_head = init_value_head(hidden_channels) # get expected reward from action/state
+        
+        def forward(self, x):
+            # x is an encoded/embedded input
+            conv_out = self.backbone(x)
+            logits = self.policy_head(conv_out)
+            value = self.value_head(conv_out)
+            return logits, value
+    
+    policy = Connect4Net()
+    return policy
 
 # Step 21 - policy_value_forward (not yet solved)
 # TODO: implement
