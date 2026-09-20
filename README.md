@@ -38,7 +38,7 @@ python scaffold.py
 - [x] **26.** greedy_action_from_policy
 - [x] **27.** make_mcts_node
 - [x] **28.** node_q_value
-- [ ] **29.** ucb_score
+- [x] **29.** ucb_score
 - [ ] **30.** select_best_child
 - [ ] **31.** select_leaf
 - [ ] **32.** evaluate_with_network
