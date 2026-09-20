@@ -317,8 +317,8 @@ def sample_action_from_policy(logits, mask, temperature=1.0):
     # TODO: scale logits by temperature, mask illegal columns, sample one index
     temp_logits = logits / temperature
     masked_logits = masked_policy_logits(temp_logits, mask)
-    highest_action_prob_col = int(torch.argmax(masked_logits))
-    return highest_action_prob_col
+    sample_action_col = int(torch.multinomial(torch.softmax(masked_logits, dim=-1), 1))
+    return sample_action_col
 
 # Step 26 - greedy_action_from_policy (not yet solved)
 # TODO: implement
