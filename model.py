@@ -203,8 +203,21 @@ def init_conv_backbone(in_channels=2, hidden_channels=16):
     )
     return backbone
 
-# Step 18 - init_policy_head (not yet solved)
-# TODO: implement
+# Step 18 - init_policy_head
+import torch
+import torch.nn as nn
+
+def init_policy_head(hidden_channels=16, num_columns=7):
+    """Return an nn.Module mapping (B, hidden_channels, 6, 7) -> (B, num_columns) logits."""
+    # TODO: build a small policy head that projects backbone features to column logits
+    # Use 1x1 kernel conv (1x1xhidden_channels per cell), flattening and linear layer
+    # Avoided pooling in this case to keep the param count small
+    policy_head = nn.Sequential(
+        nn.Conv2d(hidden_channels, 1, 1), # Reduce to (B, 1, 6, 7)
+        nn.Flatten(), # Reduce to (B, 1 * 6 * 7)
+        nn.Linear(42, num_columns) # Reduce to (B, num_columns)
+    )
+    return policy_head
 
 # Step 19 - init_value_head (not yet solved)
 # TODO: implement
