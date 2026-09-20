@@ -35,7 +35,7 @@ python scaffold.py
 - [x] **23.** masked_policy_logits
 - [x] **24.** masked_log_softmax
 - [x] **25.** sample_action_from_policy
-- [ ] **26.** greedy_action_from_policy
+- [x] **26.** greedy_action_from_policy
 - [ ] **27.** make_mcts_node
 - [ ] **28.** node_q_value
 - [ ] **29.** ucb_score

@@ -320,8 +320,15 @@ def sample_action_from_policy(logits, mask, temperature=1.0):
     sample_action_col = int(torch.multinomial(torch.softmax(masked_logits, dim=-1), 1))
     return sample_action_col
 
-# Step 26 - greedy_action_from_policy (not yet solved)
-# TODO: implement
+# Step 26 - greedy_action_from_policy
+import torch
+
+def greedy_action_from_policy(logits, mask):
+    """Return the argmax legal column index from masked policy logits."""
+    # TODO: mask out illegal columns then return the argmax as a python int
+    masked_logits = masked_policy_logits(logits, mask)
+    highest_action_prob_col = int(torch.argmax(masked_logits))
+    return highest_action_prob_col
 
 # Step 27 - make_mcts_node (not yet solved)
 # TODO: implement
