@@ -359,7 +359,7 @@ def ucb_score(parent, child, c_puct=1.5):
 # Step 30 - select_best_child
 def select_best_child(node, legal_actions, c_puct=1.5):
     # TODO: return (action, child) maximizing PUCT among legal children of node.
-    best_score = 0
+    best_score = -np.inf
     best_action = 0
     for col, child_node in node["children"].items():
         # Compute PUCT / UCB score only if child node is within legal actions set
