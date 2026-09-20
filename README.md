@@ -28,7 +28,7 @@ python scaffold.py
 - [x] **16.** board_to_torch_tensor
 - [x] **17.** init_conv_backbone
 - [x] **18.** init_policy_head
-- [ ] **19.** init_value_head
+- [x] **19.** init_value_head
 - [ ] **20.** build_policy_value_net
 - [ ] **21.** policy_value_forward
 - [ ] **22.** action_mask
