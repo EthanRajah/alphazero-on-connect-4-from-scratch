@@ -283,8 +283,23 @@ def action_mask(board):
             mask[i] = False
     return mask
 
-# Step 23 - masked_policy_logits (not yet solved)
-# TODO: implement
+# Step 23 - masked_policy_logits
+import torch
+
+def masked_policy_logits(logits, mask):
+    """Set logits at illegal columns to -inf.
+
+    logits: torch.Tensor of shape (..., 7)
+    mask:   bool array/tensor of shape (7,), True = legal
+    returns: torch.Tensor of same shape as logits
+    """
+    # TODO: replace logits at illegal columns with negative infinity
+    if isinstance(mask, torch.Tensor):
+        mod_logits = logits * mask.to(torch.float32)
+    else:
+        mod_logits = logits * mask.astype(np.float32)
+    mod_logits = torch.where(mod_logits == 0.0, -1 * torch.inf, mod_logits)
+    return mod_logits
 
 # Step 24 - masked_log_softmax (not yet solved)
 # TODO: implement
