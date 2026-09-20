@@ -365,13 +365,18 @@ def select_best_child(node, legal_actions, c_puct=1.5):
         # Compute PUCT / UCB score only if child node is within legal actions set
         if col in legal_actions:
             puct_score = ucb_score(node, child_node, c_puct)
-            if puct_score > best_score:
+            if puct_score > best_score and puct_score != 0:
                 best_score = puct_score
                 best_action = col
     return best_action, node["children"][best_action]
 
-# Step 31 - select_leaf (not yet solved)
-# TODO: implement
+# Step 31 - select_leaf
+def select_leaf(root, c_puct):
+    # TODO: walk down the MCTS tree picking the best PUCT child until a non-expanded node is reached
+    current_node = root
+    while (current_node["is_expanded"]):
+        best_action, current_node = select_best_child(current_node, current_node["children"].keys(), c_puct)
+    return current_node
 
 # Step 32 - evaluate_with_network (not yet solved)
 # TODO: implement

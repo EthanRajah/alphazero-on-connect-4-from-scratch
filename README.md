@@ -40,7 +40,7 @@ python scaffold.py
 - [x] **28.** node_q_value
 - [x] **29.** ucb_score
 - [x] **30.** select_best_child
-- [ ] **31.** select_leaf
+- [x] **31.** select_leaf
 - [ ] **32.** evaluate_with_network
 - [ ] **33.** expand_node
 - [ ] **34.** backup_value
