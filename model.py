@@ -294,15 +294,20 @@ def masked_policy_logits(logits, mask):
     returns: torch.Tensor of same shape as logits
     """
     # TODO: replace logits at illegal columns with negative infinity
-    if isinstance(mask, torch.Tensor):
-        mod_logits = logits * mask.to(torch.float32)
-    else:
-        mod_logits = logits * mask.astype(np.float32)
-    mod_logits = torch.where(mod_logits == 0.0, -1 * torch.inf, mod_logits)
+    if not isinstance(mask, torch.Tensor):
+        mask = torch.from_numpy(mask)
+    mod_logits = torch.where(mask == False, -1 * torch.inf, logits)
     return mod_logits
 
-# Step 24 - masked_log_softmax (not yet solved)
-# TODO: implement
+# Step 24 - masked_log_softmax
+import torch
+
+def masked_log_softmax(logits, mask):
+    """Log-softmax of logits with illegal columns (mask=False) forced to -inf."""
+    # TODO: mask out illegal columns, then apply log-softmax over the last dim.
+    masked_logits = masked_policy_logits(logits, mask)
+    log_softmax_logits = torch.nn.functional.log_softmax(masked_logits, dim=-1)
+    return log_softmax_logits
 
 # Step 25 - sample_action_from_policy (not yet solved)
 # TODO: implement

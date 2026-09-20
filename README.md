@@ -33,7 +33,7 @@ python scaffold.py
 - [x] **21.** policy_value_forward
 - [x] **22.** action_mask
 - [x] **23.** masked_policy_logits
-- [ ] **24.** masked_log_softmax
+- [x] **24.** masked_log_softmax
 - [ ] **25.** sample_action_from_policy
 - [ ] **26.** greedy_action_from_policy
 - [ ] **27.** make_mcts_node
