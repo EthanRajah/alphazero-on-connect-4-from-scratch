@@ -365,7 +365,7 @@ def select_best_child(node, legal_actions, c_puct=1.5):
         # Compute PUCT / UCB score only if child node is within legal actions set
         if col in legal_actions:
             puct_score = ucb_score(node, child_node, c_puct)
-            if puct_score > best_score and puct_score != 0:
+            if puct_score > best_score:
                 best_score = puct_score
                 best_action = col
     return best_action, node["children"][best_action]
