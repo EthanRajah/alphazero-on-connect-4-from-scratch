@@ -30,7 +30,7 @@ python scaffold.py
 - [x] **18.** init_policy_head
 - [x] **19.** init_value_head
 - [x] **20.** build_policy_value_net
-- [ ] **21.** policy_value_forward
+- [x] **21.** policy_value_forward
 - [ ] **22.** action_mask
 - [ ] **23.** masked_policy_logits
 - [ ] **24.** masked_log_softmax
