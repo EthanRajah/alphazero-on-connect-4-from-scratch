@@ -42,7 +42,7 @@ python scaffold.py
 - [x] **30.** select_best_child
 - [x] **31.** select_leaf
 - [x] **32.** evaluate_with_network
-- [ ] **33.** expand_node
+- [x] **33.** expand_node
 - [ ] **34.** backup_value
 - [ ] **35.** run_one_simulation
 - [ ] **36.** run_mcts
