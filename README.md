@@ -41,7 +41,7 @@ python scaffold.py
 - [x] **29.** ucb_score
 - [x] **30.** select_best_child
 - [x] **31.** select_leaf
-- [ ] **32.** evaluate_with_network
+- [x] **32.** evaluate_with_network
 - [ ] **33.** expand_node
 - [ ] **34.** backup_value
 - [ ] **35.** run_one_simulation
