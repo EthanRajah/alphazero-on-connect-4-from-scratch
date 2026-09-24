@@ -408,8 +408,25 @@ def expand_node(node, priors):
     if valid_actions:
         node["is_expanded"] = True
 
-# Step 34 - backup_value (not yet solved)
-# TODO: implement
+# Step 34 - backup_value
+def backup_value(leaf, value):
+    # TODO: walk from leaf up through parents, updating visit_count and value_sum with alternating signs
+    # Start with leaf
+    cur_node = leaf
+    cur_node["value_sum"] += value
+    cur_node["visit_count"] += 1
+    to_play = False
+    # Loop through tree of nodes by traversing parent key
+    while cur_node["parent"] != None:
+        cur_node["parent"]["visit_count"] += 1
+        # If cur_node's parent to_play is the same as leaf (True), can add the value, otherwise subtract
+        if to_play:
+            cur_node["parent"]["value_sum"] += value
+            to_play = False
+        else:
+            cur_node["parent"]["value_sum"] -= value
+            to_play = True
+        cur_node = cur_node["parent"]
 
 # Step 35 - run_one_simulation (not yet solved)
 # TODO: implement
