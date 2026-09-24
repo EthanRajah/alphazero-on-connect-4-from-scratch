@@ -387,6 +387,7 @@ def evaluate_with_network(net, state, to_play):
     with torch.no_grad():
         logits, value = net(encoded_state)
     mask = action_mask(state)
+    # Priors are action probabilities (7,), and value is (B,1) where this case batch is 1
     priors = torch.softmax(masked_policy_logits(logits, mask), dim=-1)
     return priors.numpy().reshape(7,), value.item()
 
