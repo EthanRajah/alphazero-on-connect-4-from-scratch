@@ -373,6 +373,8 @@ def select_best_child(node, legal_actions, c_puct=1.5):
 # Step 31 - select_leaf
 def select_leaf(root, c_puct):
     # TODO: walk down the MCTS tree picking the best PUCT child until a non-expanded node is reached
+    if ("is_expanded" not in root):
+        return root
     current_node = root
     while (current_node["is_expanded"]):
         best_action, current_node = select_best_child(current_node, current_node["children"].keys(), c_puct)
@@ -428,8 +430,24 @@ def backup_value(leaf, value):
             to_play = True
         cur_node = cur_node["parent"]
 
-# Step 35 - run_one_simulation (not yet solved)
-# TODO: implement
+# Step 35 - run_one_simulation
+def run_one_simulation(root, net, c_puct):
+    # TODO: run one MCTS simulation: select a leaf, evaluate, expand if non-terminal, backup.
+    leaf_node = select_leaf(root, c_puct)
+    done, winner = is_terminal(leaf_node["board"])
+    if not done:
+        # If not at the terminal outcome, use the network to get action probabilities and value, then expand
+        # to all possible actions as new children, then propagate value back up to root
+        action_probs, value = evaluate_with_network(net, leaf_node["board"], leaf_node["to_play"])
+        expand_node(leaf_node, action_probs)
+    else:
+        # Terminal state
+        value = 0
+        if winner:
+            # Not a draw - this means last players move won them the game
+            value = -1
+    # Backup step
+    backup_value(leaf_node, value)
 
 # Step 36 - run_mcts (not yet solved)
 # TODO: implement
