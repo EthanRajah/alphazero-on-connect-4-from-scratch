@@ -548,7 +548,7 @@ import torch
 
 def value_loss_mse(predicted_values, target_values):
     # TODO: return the mean squared error between predicted and target values
-    mse = torch.nn.MSELoss()
+    mse = torch.nn.MSELoss() # L2 loss, then mean computed
     loss = mse(predicted_values, target_values)
     return loss
 
