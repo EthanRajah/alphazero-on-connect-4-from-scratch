@@ -532,8 +532,16 @@ def assign_value_targets(history, winner):
             step_value_targets[i]["value"] = -1.0
     return step_value_targets
 
-# Step 42 - generate_self_play_batch (not yet solved)
-# TODO: implement
+# Step 42 - generate_self_play_batch
+def generate_self_play_batch(net, num_games, num_simulations, c_puct, temperature=1.0):
+    # TODO: play num_games self-play games and return a flat list of labelled step dicts.
+    rollout_batch_buffer = []
+    for _ in range(num_games):
+        history, winner = play_self_play_game(net, num_simulations, c_puct, temperature)
+        # Create step targets for training value head and update buffer
+        step_targets = assign_value_targets(history, winner)
+        rollout_batch_buffer.extend(step_targets)
+    return rollout_batch_buffer
 
 # Step 43 - value_loss_mse (not yet solved)
 # TODO: implement
