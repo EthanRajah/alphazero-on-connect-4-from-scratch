@@ -46,7 +46,7 @@ python scaffold.py
 - [x] **34.** backup_value
 - [x] **35.** run_one_simulation
 - [x] **36.** run_mcts
-- [ ] **37.** visit_count_policy
+- [x] **37.** visit_count_policy
 - [ ] **38.** mcts_choose_action
 - [ ] **39.** record_self_play_step
 - [ ] **40.** play_self_play_game

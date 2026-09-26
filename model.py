@@ -466,8 +466,26 @@ def run_mcts(state, to_play, net, num_simulations, c_puct):
         run_one_simulation(root, net, c_puct)
     return root
 
-# Step 37 - visit_count_policy (not yet solved)
-# TODO: implement
+# Step 37 - visit_count_policy
+def visit_count_policy(root, temperature=1.0):
+    # TODO: convert root child visit counts into a length-7 probability vector over columns
+    if (root["children"].keys()):
+        visit_count_logits = np.zeros((7,))
+        for child_key in root["children"].keys():
+            visit_count_logits[child_key] = root["children"][child_key]["visit_count"]
+        # Divide raw logits by temperature if non zero, else collapse on single most visited column
+        if temperature:
+            visit_count_logits **= (1/temperature)
+            visit_count_probs = visit_count_logits / np.sum(visit_count_logits)
+            return visit_count_probs
+        else:
+            highest_visit_count = np.argmax(visit_count_logits)
+            collapse_probs = np.zeros((7,))
+            collapse_probs[highest_visit_count] = 1.0
+            return collapse_probs
+    else:
+        # No children so make every action uniform probability
+        return np.full((7,), 1/7)
 
 # Step 38 - mcts_choose_action (not yet solved)
 # TODO: implement
