@@ -442,13 +442,13 @@ def run_one_simulation(root, net, c_puct):
         # to all possible actions as new children, then propagate value back up to root
         action_probs, value = evaluate_with_network(net, leaf_node["board"], leaf_node["to_play"])
         expand_node(leaf_node, action_probs)
-        leaf_node["is_expanded"] = True
     else:
         # Terminal state
         value = 0
         if winner:
             # Not a draw - this means last players move won them the game
             value = -1
+        leaf_node["is_expanded"] = False
     # Backup step
     backup_value(leaf_node, value)
 
