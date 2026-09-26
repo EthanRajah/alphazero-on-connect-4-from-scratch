@@ -487,8 +487,13 @@ def visit_count_policy(root, temperature=1.0):
         # No children so make every action uniform probability
         return np.full((7,), 1/7)
 
-# Step 38 - mcts_choose_action (not yet solved)
-# TODO: implement
+# Step 38 - mcts_choose_action
+def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature=1.0):
+    # TODO: Run MCTS at the given state and return (action, visit-count policy vector).
+    mcts_root = run_mcts(state, to_play, net, num_simulations, c_puct)
+    visit_count_action_probs = visit_count_policy(mcts_root, temperature)
+    action = int(np.argmax(visit_count_action_probs))
+    return action, visit_count_action_probs
 
 # Step 39 - record_self_play_step (not yet solved)
 # TODO: implement
