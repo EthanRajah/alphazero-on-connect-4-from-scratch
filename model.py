@@ -398,17 +398,17 @@ def expand_node(node, priors):
     # TODO: attach a child node for every legal move with the corresponding network prior
     # Determine legal actions from current node
     valid_actions = valid_moves(node["board"])
-    for a in valid_actions:
-        # For each action (column index), create a new node with network action prior
-        child = make_mcts_node(priors[a], node)
-        # Update board with action and add to child node
-        new_board = drop_piece(node["board"], a, node["to_play"])
-        child["board"] = new_board
-        child["to_play"] = other_player(node["to_play"])
-        # Add new child to parent node
-        node["children"][a] = child
     if valid_actions:
         node["is_expanded"] = True
+        for a in valid_actions:
+            # For each action (column index), create a new node with network action prior
+            child = make_mcts_node(priors[a], node)
+            # Update board with action and add to child node
+            new_board = drop_piece(node["board"], a, node["to_play"])
+            child["board"] = new_board
+            child["to_play"] = other_player(node["to_play"])
+            # Add new child to parent node
+            node["children"][a] = child
     else:
         node["is_expanded"] = False
 
