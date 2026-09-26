@@ -407,6 +407,7 @@ def expand_node(node, priors):
             new_board = drop_piece(node["board"], a, node["to_play"])
             child["board"] = new_board
             child["to_play"] = other_player(node["to_play"])
+            child["is_expanded"] = False
             # Add new child to parent node
             node["children"][a] = child
     else:
