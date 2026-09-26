@@ -552,8 +552,16 @@ def value_loss_mse(predicted_values, target_values):
     loss = mse(predicted_values, target_values)
     return loss
 
-# Step 44 - policy_loss_cross_entropy (not yet solved)
-# TODO: implement
+# Step 44 - policy_loss_cross_entropy
+import torch
+
+def policy_loss_cross_entropy(predicted_log_probs, target_policy):
+    """Cross-entropy between MCTS target policy and network log-probs. Returns scalar tensor."""
+    # TODO: compute -sum(target * log_probs) per row, then average over the batch
+    # Cross entropy chosen as action options are like classes we can compare to visit count targets
+    ce_loss = -torch.sum(predicted_log_probs * target_policy, dim=-1)
+    average_ce_loss = torch.sum(ce_loss) / ce_loss.shape[0]
+    return average_ce_loss
 
 # Step 45 - l2_regularization_loss (not yet solved)
 # TODO: implement
