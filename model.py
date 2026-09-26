@@ -458,7 +458,7 @@ def run_mcts(state, to_play, net, num_simulations, c_puct):
     # TODO: build a fresh root for (state, to_play) and run num_simulations PUCT simulations
     # Init root node
     root = make_mcts_node()
-    root["board"] = make_empty_board()
+    root["board"] = state
     root["to_play"] = to_play
     root["is_expanded"] = False
     # Run num_simulations of MCTS
