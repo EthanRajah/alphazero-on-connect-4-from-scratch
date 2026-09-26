@@ -411,6 +411,8 @@ def expand_node(node, priors):
         node["children"][a] = child
     if valid_actions:
         node["is_expanded"] = True
+    else:
+        node["is_expanded"] = False
 
 # Step 34 - backup_value
 def backup_value(leaf, value):
