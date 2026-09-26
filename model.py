@@ -501,8 +501,22 @@ def record_self_play_step(history, board, policy, to_play):
     history.append({"board": board.copy(), "policy": policy.copy(), "to_play": to_play})
     return history
 
-# Step 40 - play_self_play_game (not yet solved)
-# TODO: implement
+# Step 40 - play_self_play_game
+def play_self_play_game(net, num_simulations, c_puct, temperature=1.0):
+    # TODO: play one Connect-4 game with both sides driven by MCTS, recording every step
+    state = make_empty_board()
+    to_play = 1
+    history = []
+    done = False
+    winner = 0
+    while not done:
+        # Decide on action
+        action, action_probs = mcts_choose_action(state, to_play, net, num_simulations, c_puct)
+        # Record board state and action probabilities before action is placed
+        history = record_self_play_step(history, state, action_probs, to_play)
+        # Make action (step environment state)
+        state, done, winner, to_play = step_env(state, action, to_play)
+    return history, winner
 
 # Step 41 - assign_value_targets (not yet solved)
 # TODO: implement
