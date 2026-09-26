@@ -378,6 +378,8 @@ def select_leaf(root, c_puct):
     current_node = root
     while (current_node["is_expanded"]):
         best_action, current_node = select_best_child(current_node, current_node["children"].keys(), c_puct)
+        if ("is_expanded" not in current_node):
+            return current_node
     return current_node
 
 # Step 32 - evaluate_with_network
@@ -440,6 +442,7 @@ def run_one_simulation(root, net, c_puct):
         # to all possible actions as new children, then propagate value back up to root
         action_probs, value = evaluate_with_network(net, leaf_node["board"], leaf_node["to_play"])
         expand_node(leaf_node, action_probs)
+        leaf_node["is_expanded"] = True
     else:
         # Terminal state
         value = 0
