@@ -378,8 +378,6 @@ def select_leaf(root, c_puct):
     current_node = root
     while (current_node["is_expanded"]):
         best_action, current_node = select_best_child(current_node, current_node["children"].keys(), c_puct)
-        if ("is_expanded" not in current_node):
-            return current_node
     return current_node
 
 # Step 32 - evaluate_with_network
