@@ -48,7 +48,7 @@ python scaffold.py
 - [x] **36.** run_mcts
 - [x] **37.** visit_count_policy
 - [x] **38.** mcts_choose_action
-- [ ] **39.** record_self_play_step
+- [x] **39.** record_self_play_step
 - [ ] **40.** play_self_play_game
 - [ ] **41.** assign_value_targets
 - [ ] **42.** generate_self_play_batch

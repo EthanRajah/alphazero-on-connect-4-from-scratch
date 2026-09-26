@@ -495,8 +495,11 @@ def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature
     action = int(np.argmax(visit_count_action_probs))
     return action, visit_count_action_probs
 
-# Step 39 - record_self_play_step (not yet solved)
-# TODO: implement
+# Step 39 - record_self_play_step
+def record_self_play_step(history, board, policy, to_play):
+    # TODO: append a dict with 'board', 'policy', 'to_play' to history and return history
+    history.append({"board": board.copy(), "policy": policy.copy(), "to_play": to_play})
+    return history
 
 # Step 40 - play_self_play_game (not yet solved)
 # TODO: implement
