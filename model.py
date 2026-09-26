@@ -518,8 +518,19 @@ def play_self_play_game(net, num_simulations, c_puct, temperature=1.0):
         state, done, winner, to_play = step_env(state, action, to_play)
     return history, winner
 
-# Step 41 - assign_value_targets (not yet solved)
-# TODO: implement
+# Step 41 - assign_value_targets
+def assign_value_targets(history, winner):
+    # TODO: return a new list of step dicts each annotated with a 'value' target in {-1.0, 0.0, 1.0}.
+    step_value_targets = [d.copy() for d in history]
+    for i, step in enumerate(step_value_targets):
+        # Look at each step dict within history and build value dict
+        if winner == 0:
+            step_value_targets[i]["value"] = 0.0
+        elif step["to_play"] == winner:
+            step_value_targets[i]["value"] = 1.0
+        else:
+            step_value_targets[i]["value"] = -1.0
+    return step_value_targets
 
 # Step 42 - generate_self_play_batch (not yet solved)
 # TODO: implement

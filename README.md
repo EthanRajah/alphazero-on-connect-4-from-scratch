@@ -50,7 +50,7 @@ python scaffold.py
 - [x] **38.** mcts_choose_action
 - [x] **39.** record_self_play_step
 - [x] **40.** play_self_play_game
-- [ ] **41.** assign_value_targets
+- [x] **41.** assign_value_targets
 - [ ] **42.** generate_self_play_batch
 - [ ] **43.** value_loss_mse
 - [ ] **44.** policy_loss_cross_entropy
