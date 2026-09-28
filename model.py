@@ -585,7 +585,7 @@ def combined_loss(predicted_log_probs, predicted_values, target_policy, target_v
 # Step 47 - encode_batch_states
 def encode_batch_states(boards, to_plays):
     # TODO: encode each (board, to_play) and stack into a (B, C, 6, 7) float tensor
-    batch_boards = torch.empty(len(boards), 2, 6, 7)
+    batch_boards = torch.empty(len(boards), 2, 6, 7) # 2 encoded channels per board state
     for i, board in enumerate(boards):
         enc = encode_board(board, to_plays[i])
         batch_boards[i] = torch.tensor(enc)
