@@ -664,7 +664,7 @@ def self_play_iteration(net, optimizer, num_games, num_simulations, c_puct, batc
     for _ in range(num_epochs):
         epoch_loss_stats = training_epoch(net, optimizer, rollout_buffer, batch_size)
         losses.append(epoch_loss_stats)
-    return buffer_size, losses
+    return {"buffer_size": buffer_size, "losses": losses}
 
 # Step 52 - train_loop (not yet solved)
 # TODO: implement
