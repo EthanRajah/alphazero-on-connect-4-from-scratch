@@ -638,7 +638,7 @@ def training_step(net, optimizer, minibatch, policy_weight=1.0, value_weight=1.0
 def training_epoch(net, optimizer, buffer, batch_size, policy_weight=1.0, value_weight=1.0, l2_weight=1e-4, seed=None):
     # TODO: run one shuffled pass over the buffer and return the mean of each loss component.
     minibatches = iterate_minibatches(buffer, batch_size, seed)
-    avg_loss_stats = {"total": 0, "policy": 0, "value": 0, "l2": 0}
+    avg_loss_stats = {"total": 0.0, "policy": 0.0, "value": 0.0, "l2": 0.0}
     n = len(minibatches)
     if n == 0:
         return avg_loss_stats
