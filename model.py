@@ -634,8 +634,24 @@ def training_step(net, optimizer, minibatch, policy_weight=1.0, value_weight=1.0
     # Return net statistics (detatch from autograd by returning .item())
     return {"total": total_loss.item(), "policy": parts["policy"].item(), "value": parts["value"].item(), "l2": parts["l2"].item()}
 
-# Step 50 - training_epoch (not yet solved)
-# TODO: implement
+# Step 50 - training_epoch
+def training_epoch(net, optimizer, buffer, batch_size, policy_weight=1.0, value_weight=1.0, l2_weight=1e-4, seed=None):
+    # TODO: run one shuffled pass over the buffer and return the mean of each loss component.
+    minibatches = iterate_minibatches(buffer, batch_size, seed)
+    n = len(minibatches)
+    avg_loss_stats = {"total": 0, "policy": 0, "value": 0, "l2": 0}
+    for minibatch in minibatches:
+        # Perform single training step on minibatch and get loss statistics
+        loss_stats = training_step(net, optimizer, minibatch, policy_weight, value_weight, l2_weight)
+        avg_loss_stats["total"] += loss_stats["total"]
+        avg_loss_stats["policy"] += loss_stats["policy"]
+        avg_loss_stats["value"] += loss_stats["value"]
+        avg_loss_stats["l2"] += loss_stats["l2"]
+    avg_loss_stats["total"] /= n
+    avg_loss_stats["policy"] /= n
+    avg_loss_stats["value"] /= n
+    avg_loss_stats["l2"] /= n
+    return avg_loss_stats
 
 # Step 51 - self_play_iteration (not yet solved)
 # TODO: implement
