@@ -587,8 +587,7 @@ def encode_batch_states(boards, to_plays):
     # TODO: encode each (board, to_play) and stack into a (B, C, 6, 7) float tensor
     batch_boards = torch.empty(len(boards), 2, 6, 7) # 2 encoded channels per board state
     for i, board in enumerate(boards):
-        enc = encode_board(board, to_plays[i])
-        batch_boards[i] = torch.tensor(enc)
+        batch_boards[i] = board_to_torch_tensor(board, to_plays[i])
     return batch_boards
 
 # Step 48 - iterate_minibatches
