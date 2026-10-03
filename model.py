@@ -666,8 +666,15 @@ def self_play_iteration(net, optimizer, num_games, num_simulations, c_puct, batc
         losses.append(epoch_loss_stats)
     return {"buffer_size": buffer_size, "losses": losses}
 
-# Step 52 - train_loop (not yet solved)
-# TODO: implement
+# Step 52 - train_loop
+def train_loop(net, optimizer, num_iterations, num_games, num_simulations, c_puct, batch_size, num_epochs=1, temperature=1.0):
+    # TODO: run self_play_iteration num_iterations times and collect each returned dict into a list.
+    training_history = []
+    for _ in range(num_iterations):
+        # Iterate on the training policy, where each time the improved policy generates the rollout buffer data with MCTS
+        hist = self_play_iteration(net, optimizer, num_games, num_simulations, c_puct, batch_size, num_epochs, temperature)
+        training_history.append(hist)
+    return training_history
 
 # Step 53 - random_policy_action (not yet solved)
 # TODO: implement
