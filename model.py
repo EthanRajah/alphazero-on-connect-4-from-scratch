@@ -685,8 +685,17 @@ def random_policy_action(state, to_play, rng=None):
     action = int(rng.choice(action_options))
     return action
 
-# Step 54 - greedy_agent_action (not yet solved)
-# TODO: implement
+# Step 54 - greedy_agent_action
+def greedy_agent_action(net, state, to_play):
+    # TODO: run one forward pass and return the argmax legal column for to_play.
+    encoded_state = encode_board(state, to_play)
+    encoded_state = torch.from_numpy(encoded_state)
+    net.eval()
+    with torch.no_grad():
+        logits, value = net(encoded_state)
+    mask = action_mask(state)
+    action_logits = masked_policy_logits(logits, mask)
+    return int(torch.argmax(action_logits))
 
 # Step 55 - play_one_match (not yet solved)
 # TODO: implement
