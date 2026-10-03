@@ -591,8 +591,17 @@ def encode_batch_states(boards, to_plays):
         batch_boards[i] = torch.tensor(enc)
     return batch_boards
 
-# Step 48 - iterate_minibatches (not yet solved)
-# TODO: implement
+# Step 48 - iterate_minibatches
+def iterate_minibatches(buffer, batch_size, seed=None):
+    """Yield shuffled minibatches of step dicts of size <= batch_size."""
+    # TODO: shuffle indices and yield contiguous slices of the buffer
+    rng = np.random.default_rng(seed)
+    reorder_buffer = rng.permutation(buffer)
+    minibatches = []
+    for i in range (0, len(buffer), batch_size):
+        minibatch = reorder_buffer[i:i+batch_size]
+        minibatches.append(minibatch)
+    return minibatches
 
 # Step 49 - training_step (not yet solved)
 # TODO: implement
