@@ -641,7 +641,7 @@ def training_epoch(net, optimizer, buffer, batch_size, policy_weight=1.0, value_
     avg_loss_stats = {"total": 0, "policy": 0, "value": 0, "l2": 0}
     n = len(minibatches)
     if n == 0:
-        return 
+        return avg_loss_stats
     for minibatch in minibatches:
         # Perform single training step on minibatch and get loss statistics
         loss_stats = training_step(net, optimizer, minibatch, policy_weight, value_weight, l2_weight)
