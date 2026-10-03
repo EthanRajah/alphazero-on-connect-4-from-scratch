@@ -602,8 +602,37 @@ def iterate_minibatches(buffer, batch_size, seed=None):
         minibatches.append(minibatch)
     return minibatches
 
-# Step 49 - training_step (not yet solved)
-# TODO: implement
+# Step 49 - training_step
+def training_step(net, optimizer, minibatch, policy_weight=1.0, value_weight=1.0, l2_weight=1e-4):
+    # TODO: run forward pass, compute combined AlphaZero loss, backprop, and step optimizer.
+    # Encode minibatch - (B, 2, 6, 7)
+    boards = []
+    to_plays = []
+    action_masks = []
+    target_values = torch.zeros(len(minibatch), 1)
+    target_policy = torch.zeros(len(minibatch), 7)
+    for i, state in enumerate(minibatch):
+        boards.append(state["board"])
+        to_plays.append(state["to_play"])
+        action_masks.append(action_mask(state["board"]))
+        target_values[i] = state["value"]
+        target_policy[i] = torch.from_numpy(state["policy"])
+    encoded_board = encode_batch_states(boards, to_plays)
+    # Run forward pass with net to get logits (B,7) and values (B,1)
+    logits, values = policy_value_forward(net, encoded_board)
+    # Convert logits into log probabilities
+    batch_logprobs = torch.zeros(len(minibatch), 7)
+    for i in range (len(minibatch)):
+        log_probs = masked_log_softmax(logits[i], action_masks[i])
+        batch_logprobs[i] = log_probs
+    # Compute loss between policy target and net logprobs, as well as target values and net values
+    total_loss, parts = combined_loss(batch_logprobs, values, target_policy, target_values, net, policy_weight, value_weight, l2_weight)
+    # Do backprop and update parameters
+    optimizer.zero_grad()
+    total_loss.backward()
+    optimizer.step()
+    # Return net statistics (detatch from autograd by returning .item())
+    return {"total": total_loss.item(), "policy": parts["policy"].item(), "value": parts["value"].item(), "l2": parts["l2"].item()}
 
 # Step 50 - training_epoch (not yet solved)
 # TODO: implement
