@@ -697,8 +697,19 @@ def greedy_agent_action(net, state, to_play):
     action_logits = masked_policy_logits(logits, mask)
     return int(torch.argmax(action_logits))
 
-# Step 55 - play_one_match (not yet solved)
-# TODO: implement
+# Step 55 - play_one_match
+def play_one_match(agent_one, agent_two, starting_player=1):
+    # TODO: play a full Connect-4 game between two callable agents and return the winner code.
+    state = make_empty_board()
+    done = False
+    cur_player = starting_player
+    while not done:
+        if cur_player == 1:
+            action_decision = agent_one(state, cur_player)
+        else:
+            action_decision = agent_two(state, cur_player)
+        state, done, winner, cur_player = step_env(state, action_decision, cur_player)
+    return winner
 
 # Step 56 - match_win_rate (not yet solved)
 # TODO: implement
