@@ -66,7 +66,7 @@ python scaffold.py
 - [x] **54.** greedy_agent_action
 - [x] **55.** play_one_match
 - [x] **56.** match_win_rate
-- [ ] **57.** evaluate_against_random
+- [x] **57.** evaluate_against_random
 
 ---
 
