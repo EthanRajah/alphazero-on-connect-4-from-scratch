@@ -1,77 +1,18 @@
 """
-AlphaZero on Connect-4 from Scratch scaffold.
+AlphaZero on Connect-4 from Scratch
+
+Scaffold for testing and debugging.
 
 Run this with: python scaffold.py
 Uses functions defined in model.py.
 """
 
-from model import *  # noqa: F401, F403 (pulls in your solution functions)
+from model import *  # noqa: F401, F403 (pulls in solution functions)
 
 """AlphaZero on Connect-4: end-to-end demo of self-play training and evaluation."""
 
 import numpy as np
 import torch
-
-from solution import (
-    make_empty_board,
-    column_top_row,
-    drop_piece,
-    column_full,
-    valid_moves,
-    four_in_a_row_horizontal,
-    four_in_a_row_vertical,
-    four_in_a_row_diagonal_down_right,
-    four_in_a_row_diagonal_up_right,
-    check_winner,
-    board_is_full,
-    is_terminal,
-    other_player,
-    step_env,
-    encode_board,
-    board_to_torch_tensor,
-    init_conv_backbone,
-    init_policy_head,
-    init_value_head,
-    build_policy_value_net,
-    policy_value_forward,
-    action_mask,
-    masked_policy_logits,
-    masked_log_softmax,
-    sample_action_from_policy,
-    greedy_action_from_policy,
-    make_mcts_node,
-    node_q_value,
-    ucb_score,
-    select_best_child,
-    select_leaf,
-    evaluate_with_network,
-    expand_node,
-    backup_value,
-    run_one_simulation,
-    run_mcts,
-    visit_count_policy,
-    mcts_choose_action,
-    record_self_play_step,
-    play_self_play_game,
-    assign_value_targets,
-    generate_self_play_batch,
-    value_loss_mse,
-    policy_loss_cross_entropy,
-    l2_regularization_loss,
-    combined_loss,
-    encode_batch_states,
-    iterate_minibatches,
-    training_step,
-    training_epoch,
-    self_play_iteration,
-    train_loop,
-    random_policy_action,
-    greedy_agent_action,
-    play_one_match,
-    match_win_rate,
-    evaluate_against_random,
-)
-
 
 def _summarize_loss(v):
     """Convert a loss value (scalar or list of scalars) to a single rounded float."""

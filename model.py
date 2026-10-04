@@ -4,20 +4,21 @@ AlphaZero on Connect-4 from Scratch
 Assembled from your step-by-step solutions.
 """
 
+import math
 import numpy as np
+import torch
+import torch.nn as nn
 
 # Step 1 - make_empty_board
-import numpy as np
-
 def make_empty_board():
     """Return a 6x7 integer numpy array of zeros representing an empty Connect-4 board."""
-    # TODO: create a 6x7 integer array of zeros and return it
+    #  create a 6x7 integer array of zeros and return it
     return np.zeros([6,7], dtype=int)
 
 # Step 2 - column_top_row
 def column_top_row(board, column):
     """Return the lowest empty row in `column`, or -1 if the column is full."""
-    # TODO: scan the column from the bottom up and return the first empty row index
+    #  scan the column from the bottom up and return the first empty row index
     empty_idxs = np.where(board[:,column] == 0)[0]
     if len(empty_idxs) == 0:
         return -1
@@ -26,7 +27,7 @@ def column_top_row(board, column):
 
 # Step 3 - drop_piece
 def drop_piece(board, column, player):
-    # TODO: place `player` in the lowest empty row of `column` and return the new board
+    #  place `player` in the lowest empty row of `column` and return the new board
     free_row = column_top_row(board, column)
     if free_row != -1:
         # Empty row in that column available
@@ -37,11 +38,9 @@ def drop_piece(board, column, player):
         raise ValueError
 
 # Step 4 - column_full
-import numpy as np
-
 def column_full(board, column):
     """Return True if `column` has no empty rows left."""
-    # TODO: check whether the column can still accept a piece
+    #  check whether the column can still accept a piece
     if column_top_row(board, column) == -1:
         return True
     else:
@@ -49,7 +48,7 @@ def column_full(board, column):
 
 # Step 5 - valid_moves
 def valid_moves(board):
-    # TODO: return a list of column indices that still have at least one empty row
+    #  return a list of column indices that still have at least one empty row
     valid_arr = []
     for col in range(len(board[0])):
         # Loop through the columns of the board
@@ -59,7 +58,7 @@ def valid_moves(board):
 
 # Step 6 - four_in_a_row_horizontal
 def four_in_a_row_horizontal(board):
-    # TODO: scan every row for four consecutive matching non-zero pieces horizontally
+    #  scan every row for four consecutive matching non-zero pieces horizontally
     for row in board:
         # Iterate through the row looking for repetitions of 4 1s or 2s
         for cell_idx in range(len(row)):
@@ -73,7 +72,7 @@ def four_in_a_row_horizontal(board):
 
 # Step 7 - four_in_a_row_vertical
 def four_in_a_row_vertical(board):
-    # TODO: scan every column for four consecutive matching non-zero pieces vertically
+    #  scan every column for four consecutive matching non-zero pieces vertically
     for col_idx in range (len(board[0])):
         col = board[:,col_idx]
         for cell_idx in range(len(col)):
@@ -87,7 +86,7 @@ def four_in_a_row_vertical(board):
 
 # Step 8 - four_in_a_row_diagonal_down_right
 def four_in_a_row_diagonal_down_right(board):
-    # TODO: scan every down-right diagonal of the 6x7 board for four matching non-zero pieces
+    #  scan every down-right diagonal of the 6x7 board for four matching non-zero pieces
     # 0 0 0 0 0 0 0
     # 0 0 0 0 0 0 0
     # 0 0 0 0 0 0 0
@@ -107,7 +106,7 @@ def four_in_a_row_diagonal_down_right(board):
 
 # Step 9 - four_in_a_row_diagonal_up_right
 def four_in_a_row_diagonal_up_right(board):
-    # TODO: scan every up-right diagonal for four consecutive matching non-zero pieces
+    #  scan every up-right diagonal for four consecutive matching non-zero pieces
     # 0 0 0 0 0 0 0
     # 0 0 0 0 0 0 0
     # 0 0 0 0 0 0 0
@@ -128,11 +127,9 @@ def four_in_a_row_diagonal_up_right(board):
     return 0
 
 # Step 10 - check_winner
-import numpy as np
-
 def check_winner(board):
     """Return 1 or 2 if that player has four in a row, else 0."""
-    # TODO: combine the four direction scans and return the first non-zero result
+    #  combine the four direction scans and return the first non-zero result
     if (four_in_a_row_horizontal(board) == 1 or four_in_a_row_vertical(board) == 1 or four_in_a_row_diagonal_up_right(board) == 1 or four_in_a_row_diagonal_down_right(board) == 1):
         return 1
     elif (four_in_a_row_horizontal(board) == 2 or four_in_a_row_vertical(board) == 2 or four_in_a_row_diagonal_up_right(board) == 2 or four_in_a_row_diagonal_down_right(board) == 2):
@@ -142,12 +139,12 @@ def check_winner(board):
 
 # Step 11 - board_is_full
 def board_is_full(board):
-    # TODO: return True when no column has an empty slot left
+    #  return True when no column has an empty slot left
     return np.all(board[0, :] != 0)
 
 # Step 12 - is_terminal
 def is_terminal(board):
-    # TODO: return (done, winner) using check_winner and board_is_full.
+    #  return (done, winner) using check_winner and board_is_full.
     winner = check_winner(board)
     if winner:
         return (True, winner)
@@ -158,12 +155,12 @@ def is_terminal(board):
 
 # Step 13 - other_player
 def other_player(player):
-    # TODO: return the opponent's player code (1 <-> 2)
+    #  return the opponent's player code (1 <-> 2)
     return 2 if player == 1 else 1
 
 # Step 14 - step_env
 def step_env(board, column, player):
-    # TODO: drop piece for player, then return (new_board, done, winner, next_player).
+    #  drop piece for player, then return (new_board, done, winner, next_player).
     new_board = drop_piece(board, column, player)
     done, winner = is_terminal(new_board)
     next_player = other_player(player)
@@ -172,7 +169,7 @@ def step_env(board, column, player):
 # Step 15 - encode_board
 def encode_board(board, current_player):
     """Encode a 6x7 board as a (2, 6, 7) float32 tensor from current_player's view."""
-    # TODO: build two binary planes (current player, opponent) and stack them
+    #  build two binary planes (current player, opponent) and stack them
     enc = np.repeat(np.expand_dims(board, axis=0), 2, axis=0).astype(np.float32)
     if other_player(current_player) == 1:
         # Current player is 2
@@ -186,14 +183,14 @@ def encode_board(board, current_player):
 
 # Step 16 - board_to_torch_tensor
 def board_to_torch_tensor(board, current_player):
-    # TODO: encode the board and return it as a float32 torch tensor of shape (1, 2, 6, 7).
+    #  encode the board and return it as a float32 torch tensor of shape (1, 2, 6, 7).
     enc = encode_board(board, current_player)
     torch_enc = torch.from_numpy(enc).unsqueeze(dim=0)
     return torch_enc
 
 # Step 17 - init_conv_backbone
 def init_conv_backbone(in_channels=2, hidden_channels=16):
-    # TODO: Build a small convolutional backbone preserving the 6x7 spatial shape.
+    #  Build a small convolutional backbone preserving the 6x7 spatial shape.
     # Padding with (1,1) to preserve (6,7) dimension
     backbone = torch.nn.Sequential(
         nn.Conv2d(in_channels, hidden_channels//2, 3, padding=(1,1)),
@@ -204,12 +201,9 @@ def init_conv_backbone(in_channels=2, hidden_channels=16):
     return backbone
 
 # Step 18 - init_policy_head
-import torch
-import torch.nn as nn
-
 def init_policy_head(hidden_channels=16, num_columns=7):
     """Return an nn.Module mapping (B, hidden_channels, 6, 7) -> (B, num_columns) logits."""
-    # TODO: build a small policy head that projects backbone features to column logits
+    #  build a small policy head that projects backbone features to column logits
     # Use 1x1 kernel conv (1x1xhidden_channels per cell), flattening and linear layer
     # Avoided pooling in this case to keep the param count small
     policy_head = nn.Sequential(
@@ -220,12 +214,9 @@ def init_policy_head(hidden_channels=16, num_columns=7):
     return policy_head
 
 # Step 19 - init_value_head
-import torch
-import torch.nn as nn
-
 def init_value_head(hidden_channels=16):
     """Return an nn.Module mapping (B, hidden_channels, 6, 7) -> (B, 1) in (-1, 1)."""
-    # TODO: build a value head that collapses backbone features to a single bounded scalar per board.
+    #  build a value head that collapses backbone features to a single bounded scalar per board.
     # Same concept as the policy head but need linear layer to 1 and tanh activation
     value_head = nn.Sequential(
         nn.Conv2d(hidden_channels, 1, 1), # (B, 1, 6, 7)
@@ -236,12 +227,9 @@ def init_value_head(hidden_channels=16):
     return value_head
 
 # Step 20 - build_policy_value_net
-import torch
-import torch.nn as nn
-
 def build_policy_value_net(in_channels=2, hidden_channels=16, num_columns=7):
     """Compose backbone + policy head + value head into one nn.Module."""
-    # TODO: build an nn.Module with backbone, policy_head, value_head attributes
+    #  build an nn.Module with backbone, policy_head, value_head attributes
     class Connect4Net(nn.Module):
         def __init__(self):
             super().__init__()
@@ -260,20 +248,15 @@ def build_policy_value_net(in_channels=2, hidden_channels=16, num_columns=7):
     return policy
 
 # Step 21 - policy_value_forward
-import torch
-import torch.nn as nn
-
 def policy_value_forward(net, encoded_board):
     """Run encoded_board (B,2,6,7) through net and return (logits, value)."""
-    # TODO: call the network on the encoded board and return its two outputs
+    #  call the network on the encoded board and return its two outputs
     logits, value = net(encoded_board)
     return logits, value
 
 # Step 22 - action_mask
-import numpy as np
-
 def action_mask(board):
-    # TODO: return a length-7 boolean mask, True where the column is legal
+    #  return a length-7 boolean mask, True where the column is legal
     cols_avail = valid_moves(board)
     mask = np.empty(7, dtype=bool)
     for i in range(7):
@@ -284,8 +267,6 @@ def action_mask(board):
     return mask
 
 # Step 23 - masked_policy_logits
-import torch
-
 def masked_policy_logits(logits, mask):
     """Set logits at illegal columns to -inf.
 
@@ -293,46 +274,40 @@ def masked_policy_logits(logits, mask):
     mask:   bool array/tensor of shape (7,), True = legal
     returns: torch.Tensor of same shape as logits
     """
-    # TODO: replace logits at illegal columns with negative infinity
+    #  replace logits at illegal columns with negative infinity
     if not isinstance(mask, torch.Tensor):
         mask = torch.from_numpy(mask)
     mod_logits = torch.where(mask == False, -1 * torch.inf, logits)
     return mod_logits
 
 # Step 24 - masked_log_softmax
-import torch
-
 def masked_log_softmax(logits, mask):
     """Log-softmax of logits with illegal columns (mask=False) forced to -inf."""
-    # TODO: mask out illegal columns, then apply log-softmax over the last dim.
+    #  mask out illegal columns, then apply log-softmax over the last dim.
     masked_logits = masked_policy_logits(logits, mask)
     log_softmax_logits = torch.nn.functional.log_softmax(masked_logits, dim=-1)
     return log_softmax_logits
 
 # Step 25 - sample_action_from_policy
-import torch
-
 def sample_action_from_policy(logits, mask, temperature=1.0):
     """Sample a legal column from a tempered masked categorical policy."""
-    # TODO: scale logits by temperature, mask illegal columns, sample one index
+    #  scale logits by temperature, mask illegal columns, sample one index
     temp_logits = logits / temperature
     masked_logits = masked_policy_logits(temp_logits, mask)
     sample_action_col = int(torch.multinomial(torch.softmax(masked_logits, dim=-1), 1))
     return sample_action_col
 
 # Step 26 - greedy_action_from_policy
-import torch
-
 def greedy_action_from_policy(logits, mask):
     """Return the argmax legal column index from masked policy logits."""
-    # TODO: mask out illegal columns then return the argmax as a python int
+    #  mask out illegal columns then return the argmax as a python int
     masked_logits = masked_policy_logits(logits, mask)
     highest_action_prob_col = int(torch.argmax(masked_logits))
     return highest_action_prob_col
 
 # Step 27 - make_mcts_node
 def make_mcts_node(prior=0.0, parent=None):
-    # TODO: build a dict with prior, visit_count, value_sum, children, and parent fields.
+    #  build a dict with prior, visit_count, value_sum, children, and parent fields.
     mcts_node = {
         "prior": prior,
         "visit_count": 0,
@@ -344,21 +319,19 @@ def make_mcts_node(prior=0.0, parent=None):
 
 # Step 28 - node_q_value
 def node_q_value(node):
-    # TODO: return the mean value Q = value_sum / visit_count, or 0.0 if visit_count == 0
+    #  return the mean value Q = value_sum / visit_count, or 0.0 if visit_count == 0
     if node["visit_count"] != 0:
         return node["value_sum"] / node["visit_count"]
     return 0.0
 
 # Step 29 - ucb_score
-import math
-
 def ucb_score(parent, child, c_puct=1.5):
-    # TODO: return Q(child) + c_puct * prior * sqrt(N_parent) / (1 + N_child)
+    #  return Q(child) + c_puct * prior * sqrt(N_parent) / (1 + N_child)
     return (node_q_value(child) + c_puct * child["prior"] * math.sqrt(parent["visit_count"]) /  (1 + child["visit_count"]))
 
 # Step 30 - select_best_child
 def select_best_child(node, legal_actions, c_puct=1.5):
-    # TODO: return (action, child) maximizing PUCT among legal children of node.
+    #  return (action, child) maximizing PUCT among legal children of node.
     best_score = -np.inf
     best_action = 0
     for col, child_node in node["children"].items():
@@ -372,7 +345,7 @@ def select_best_child(node, legal_actions, c_puct=1.5):
 
 # Step 31 - select_leaf
 def select_leaf(root, c_puct):
-    # TODO: walk down the MCTS tree picking the best PUCT child until a non-expanded node is reached
+    #  walk down the MCTS tree picking the best PUCT child until a non-expanded node is reached
     if ("is_expanded" not in root):
         return root
     current_node = root
@@ -382,7 +355,7 @@ def select_leaf(root, c_puct):
 
 # Step 32 - evaluate_with_network
 def evaluate_with_network(net, state, to_play):
-    # TODO: run net on encoded state and return (masked priors np.ndarray (7,), value float)
+    #  run net on encoded state and return (masked priors np.ndarray (7,), value float)
     encoded_state = encode_board(state, to_play)
     encoded_state = torch.from_numpy(encoded_state)
     net.eval()
@@ -395,7 +368,7 @@ def evaluate_with_network(net, state, to_play):
 
 # Step 33 - expand_node
 def expand_node(node, priors):
-    # TODO: attach a child node for every legal move with the corresponding network prior
+    #  attach a child node for every legal move with the corresponding network prior
     # Determine legal actions from current node
     valid_actions = valid_moves(node["board"])
     if valid_actions:
@@ -415,7 +388,7 @@ def expand_node(node, priors):
 
 # Step 34 - backup_value
 def backup_value(leaf, value):
-    # TODO: walk from leaf up through parents, updating visit_count and value_sum with alternating signs
+    #  walk from leaf up through parents, updating visit_count and value_sum with alternating signs
     # Start with leaf
     cur_node = leaf
     cur_node["value_sum"] += value
@@ -435,7 +408,7 @@ def backup_value(leaf, value):
 
 # Step 35 - run_one_simulation
 def run_one_simulation(root, net, c_puct):
-    # TODO: run one MCTS simulation: select a leaf, evaluate, expand if non-terminal, backup.
+    #  run one MCTS simulation: select a leaf, evaluate, expand if non-terminal, backup.
     leaf_node = select_leaf(root, c_puct)
     done, winner = is_terminal(leaf_node["board"])
     if not done:
@@ -455,7 +428,7 @@ def run_one_simulation(root, net, c_puct):
 
 # Step 36 - run_mcts
 def run_mcts(state, to_play, net, num_simulations, c_puct):
-    # TODO: build a fresh root for (state, to_play) and run num_simulations PUCT simulations
+    #  build a fresh root for (state, to_play) and run num_simulations PUCT simulations
     # Init root node
     root = make_mcts_node()
     root["board"] = state
@@ -468,7 +441,7 @@ def run_mcts(state, to_play, net, num_simulations, c_puct):
 
 # Step 37 - visit_count_policy
 def visit_count_policy(root, temperature=1.0):
-    # TODO: convert root child visit counts into a length-7 probability vector over columns
+    #  convert root child visit counts into a length-7 probability vector over columns
     if (root["children"].keys()):
         visit_count_logits = np.zeros((7,))
         for child_key in root["children"].keys():
@@ -489,7 +462,7 @@ def visit_count_policy(root, temperature=1.0):
 
 # Step 38 - mcts_choose_action
 def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature=1.0):
-    # TODO: Run MCTS at the given state and return (action, visit-count policy vector).
+    #  Run MCTS at the given state and return (action, visit-count policy vector).
     mcts_root = run_mcts(state, to_play, net, num_simulations, c_puct)
     visit_count_action_probs = visit_count_policy(mcts_root, temperature)
     action = int(np.argmax(visit_count_action_probs))
@@ -497,13 +470,13 @@ def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature
 
 # Step 39 - record_self_play_step
 def record_self_play_step(history, board, policy, to_play):
-    # TODO: append a dict with 'board', 'policy', 'to_play' to history and return history
+    #  append a dict with 'board', 'policy', 'to_play' to history and return history
     history.append({"board": board.copy(), "policy": policy.copy(), "to_play": to_play})
     return history
 
 # Step 40 - play_self_play_game
 def play_self_play_game(net, num_simulations, c_puct, temperature=1.0):
-    # TODO: play one Connect-4 game with both sides driven by MCTS, recording every step
+    #  play one Connect-4 game with both sides driven by MCTS, recording every step
     state = make_empty_board()
     to_play = 1
     history = []
@@ -511,7 +484,7 @@ def play_self_play_game(net, num_simulations, c_puct, temperature=1.0):
     winner = 0
     while not done:
         # Decide on action
-        action, action_probs = mcts_choose_action(state, to_play, net, num_simulations, c_puct)
+        action, action_probs = mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature)
         # Record board state and action probabilities before action is placed
         history = record_self_play_step(history, state, action_probs, to_play)
         # Make action (step environment state)
@@ -520,7 +493,7 @@ def play_self_play_game(net, num_simulations, c_puct, temperature=1.0):
 
 # Step 41 - assign_value_targets
 def assign_value_targets(history, winner):
-    # TODO: return a new list of step dicts each annotated with a 'value' target in {-1.0, 0.0, 1.0}.
+    #  return a new list of step dicts each annotated with a 'value' target in {-1.0, 0.0, 1.0}.
     step_value_targets = [d.copy() for d in history]
     for i, step in enumerate(step_value_targets):
         # Look at each step dict within history and build value dict
@@ -534,7 +507,7 @@ def assign_value_targets(history, winner):
 
 # Step 42 - generate_self_play_batch
 def generate_self_play_batch(net, num_games, num_simulations, c_puct, temperature=1.0):
-    # TODO: play num_games self-play games and return a flat list of labelled step dicts.
+    #  play num_games self-play games and return a flat list of labelled step dicts.
     rollout_batch_buffer = []
     for _ in range(num_games):
         history, winner = play_self_play_game(net, num_simulations, c_puct, temperature)
@@ -544,28 +517,25 @@ def generate_self_play_batch(net, num_games, num_simulations, c_puct, temperatur
     return rollout_batch_buffer
 
 # Step 43 - value_loss_mse
-import torch
-
 def value_loss_mse(predicted_values, target_values):
-    # TODO: return the mean squared error between predicted and target values
+    #  return the mean squared error between predicted and target values
     mse = torch.nn.MSELoss() # L2 loss, then mean computed
     loss = mse(predicted_values, target_values)
     return loss
 
 # Step 44 - policy_loss_cross_entropy
-import torch
-
 def policy_loss_cross_entropy(predicted_log_probs, target_policy):
     """Cross-entropy between MCTS target policy and network log-probs. Returns scalar tensor."""
-    # TODO: compute -sum(target * log_probs) per row, then average over the batch
+    #  compute -sum(target * log_probs) per row, then average over the batch
     # Cross entropy chosen as action options are like classes we can compare to visit count targets
-    ce_loss = -torch.sum(predicted_log_probs * target_policy, dim=-1)
+    weighted_log_probs = torch.where(target_policy > 0, predicted_log_probs * target_policy, torch.zeros_like(predicted_log_probs)) # Need to ignore -inf log probs, otherwise -inf * 0 = nan values
+    ce_loss = -torch.sum(weighted_log_probs, dim=-1)
     average_ce_loss = torch.sum(ce_loss) / ce_loss.shape[0]
     return average_ce_loss
 
 # Step 45 - l2_regularization_loss
 def l2_regularization_loss(net):
-    # TODO: return the sum of squared L2 norms of all trainable parameters in net
+    #  return the sum of squared L2 norms of all trainable parameters in net
     total = torch.tensor(0.0)
     for param in net.parameters():
         if param.requires_grad:
@@ -574,7 +544,7 @@ def l2_regularization_loss(net):
 
 # Step 46 - combined_loss
 def combined_loss(predicted_log_probs, predicted_values, target_policy, target_values, net, policy_weight=1.0, value_weight=1.0, l2_weight=1e-4):
-    # TODO: combine policy CE, value MSE, and L2 reg into a single weighted training loss.
+    #  combine policy CE, value MSE, and L2 reg into a single weighted training loss.
     value_head_loss = value_loss_mse(predicted_values, target_values)
     policy_head_loss = policy_loss_cross_entropy(predicted_log_probs, target_policy)
     regularizer_term = l2_regularization_loss(net)
@@ -584,7 +554,7 @@ def combined_loss(predicted_log_probs, predicted_values, target_policy, target_v
 
 # Step 47 - encode_batch_states
 def encode_batch_states(boards, to_plays):
-    # TODO: encode each (board, to_play) and stack into a (B, C, 6, 7) float tensor
+    #  encode each (board, to_play) and stack into a (B, C, 6, 7) float tensor
     batch_boards = torch.empty(len(boards), 2, 6, 7) # 2 encoded channels per board state
     for i, board in enumerate(boards):
         batch_boards[i] = board_to_torch_tensor(board, to_plays[i])
@@ -593,7 +563,7 @@ def encode_batch_states(boards, to_plays):
 # Step 48 - iterate_minibatches
 def iterate_minibatches(buffer, batch_size, seed=None):
     """Yield shuffled minibatches of step dicts of size <= batch_size."""
-    # TODO: shuffle indices and yield contiguous slices of the buffer
+    #  shuffle indices and yield contiguous slices of the buffer
     rng = np.random.default_rng(seed)
     reorder_buffer = rng.permutation(buffer)
     minibatches = []
@@ -604,7 +574,7 @@ def iterate_minibatches(buffer, batch_size, seed=None):
 
 # Step 49 - training_step
 def training_step(net, optimizer, minibatch, policy_weight=1.0, value_weight=1.0, l2_weight=1e-4):
-    # TODO: run forward pass, compute combined AlphaZero loss, backprop, and step optimizer.
+    #  run forward pass, compute combined AlphaZero loss, backprop, and step optimizer.
     # Encode minibatch - (B, 2, 6, 7)
     boards = []
     to_plays = []
@@ -636,7 +606,7 @@ def training_step(net, optimizer, minibatch, policy_weight=1.0, value_weight=1.0
 
 # Step 50 - training_epoch
 def training_epoch(net, optimizer, buffer, batch_size, policy_weight=1.0, value_weight=1.0, l2_weight=1e-4, seed=None):
-    # TODO: run one shuffled pass over the buffer and return the mean of each loss component.
+    #  run one shuffled pass over the buffer and return the mean of each loss component.
     minibatches = iterate_minibatches(buffer, batch_size, seed)
     avg_loss_stats = {"total": 0.0, "policy": 0.0, "value": 0.0, "l2": 0.0}
     n = len(minibatches)
@@ -657,7 +627,7 @@ def training_epoch(net, optimizer, buffer, batch_size, policy_weight=1.0, value_
 
 # Step 51 - self_play_iteration
 def self_play_iteration(net, optimizer, num_games, num_simulations, c_puct, batch_size, num_epochs=1, temperature=1.0):
-    # TODO: generate a self-play buffer, then train on it for num_epochs and return buffer_size + losses
+    #  generate a self-play buffer, then train on it for num_epochs and return buffer_size + losses
     rollout_buffer = generate_self_play_batch(net, num_games, num_simulations, c_puct, temperature)
     buffer_size = len(rollout_buffer)
     losses = []
@@ -668,7 +638,7 @@ def self_play_iteration(net, optimizer, num_games, num_simulations, c_puct, batc
 
 # Step 52 - train_loop
 def train_loop(net, optimizer, num_iterations, num_games, num_simulations, c_puct, batch_size, num_epochs=1, temperature=1.0):
-    # TODO: run self_play_iteration num_iterations times and collect each returned dict into a list.
+    #  run self_play_iteration num_iterations times and collect each returned dict into a list.
     training_history = []
     for _ in range(num_iterations):
         # Iterate on the training policy, where each time the improved policy generates the rollout buffer data with MCTS
@@ -678,7 +648,7 @@ def train_loop(net, optimizer, num_iterations, num_games, num_simulations, c_puc
 
 # Step 53 - random_policy_action
 def random_policy_action(state, to_play, rng=None):
-    # TODO: pick a uniformly random legal column on the given board
+    #  pick a uniformly random legal column on the given board
     if not rng:
         rng = np.random.default_rng()
     action_options = valid_moves(state)
@@ -687,7 +657,7 @@ def random_policy_action(state, to_play, rng=None):
 
 # Step 54 - greedy_agent_action
 def greedy_agent_action(net, state, to_play):
-    # TODO: run one forward pass and return the argmax legal column for to_play.
+    #  run one forward pass and return the argmax legal column for to_play.
     encoded_state = encode_board(state, to_play)
     encoded_state = torch.from_numpy(encoded_state)
     net.eval()
@@ -699,7 +669,7 @@ def greedy_agent_action(net, state, to_play):
 
 # Step 55 - play_one_match
 def play_one_match(agent_one, agent_two, starting_player=1):
-    # TODO: play a full Connect-4 game between two callable agents and return the winner code.
+    #  play a full Connect-4 game between two callable agents and return the winner code.
     state = make_empty_board()
     done = False
     cur_player = starting_player
@@ -713,7 +683,7 @@ def play_one_match(agent_one, agent_two, starting_player=1):
 
 # Step 56 - match_win_rate
 def match_win_rate(agent_one, agent_two, num_matches, alternate_starts=True):
-    # TODO: play num_matches games and tally wins, losses, draws for agent_one
+    #  play num_matches games and tally wins, losses, draws for agent_one
     wins = 0
     losses = 0
     draws = 0
@@ -734,7 +704,7 @@ def match_win_rate(agent_one, agent_two, num_matches, alternate_starts=True):
 
 # Step 57 - evaluate_against_random
 def evaluate_against_random(net, num_matches, seed=None):
-    # TODO: play num_matches between greedy net agent and a seeded random baseline
+    #  play num_matches between greedy net agent and a seeded random baseline
     rng = None
     if seed:
         rng = np.random.default_rng(seed)
@@ -744,4 +714,3 @@ def evaluate_against_random(net, num_matches, seed=None):
         num_matches,
         alternate_starts=True)
     return match_results
-
