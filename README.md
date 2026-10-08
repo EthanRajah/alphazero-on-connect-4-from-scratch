@@ -5,5 +5,5 @@ Build a complete AlphaZero-style agent for Connect-4, from the bare game rules t
 ## How to run
 
 ```bash
-python scaffold.py
+python train.py --hidden_channels 16 --batch_size 8 --num_simulations 20 --num_games 10 --num_iterations 10 --num_epochs 10
 ```
