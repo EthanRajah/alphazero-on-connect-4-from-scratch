@@ -631,17 +631,19 @@ def self_play_iteration(net, optimizer, num_games, num_simulations, c_puct, batc
     rollout_buffer = generate_self_play_batch(net, num_games, num_simulations, c_puct, temperature)
     buffer_size = len(rollout_buffer)
     losses = []
-    for _ in range(num_epochs):
+    for i in range(num_epochs):
         epoch_loss_stats = training_epoch(net, optimizer, rollout_buffer, batch_size)
         losses.append(epoch_loss_stats)
+        print("Epoch {}: total_loss {:.4f}, policy_loss {:.4f}, value_loss {:.4f}, l2_loss {:.4f}".format(i+1, epoch_loss_stats["total"], epoch_loss_stats["policy"], epoch_loss_stats["value"], epoch_loss_stats["l2"]))
     return {"buffer_size": buffer_size, "losses": losses}
 
 # Step 52 - train_loop
 def train_loop(net, optimizer, num_iterations, num_games, num_simulations, c_puct, batch_size, num_epochs=1, temperature=1.0):
     #  run self_play_iteration num_iterations times and collect each returned dict into a list.
     training_history = []
-    for _ in range(num_iterations):
+    for i in range(num_iterations):
         # Iterate on the training policy, where each time the improved policy generates the rollout buffer data with MCTS
+        print("Starting self-play iteration {}".format(i+1))
         hist = self_play_iteration(net, optimizer, num_games, num_simulations, c_puct, batch_size, num_epochs, temperature)
         training_history.append(hist)
     return training_history
@@ -713,4 +715,10 @@ def evaluate_against_random(net, num_matches, seed=None):
         lambda state, to_play: random_policy_action(state, to_play, rng),
         num_matches,
         alternate_starts=True)
+    print("Greedy-net vs random:", match_results)
     return match_results
+
+# Step 58 - evaluate_against_human
+def evaluate_against_human(net):
+    """Allow a human player to play against the trained policy-value network."""
+    pass
