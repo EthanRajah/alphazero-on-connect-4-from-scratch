@@ -326,8 +326,8 @@ def node_q_value(node):
 
 # Step 29 - ucb_score
 def ucb_score(parent, child, c_puct=1.5):
-    #  return Q(child) + c_puct * prior * sqrt(N_parent) / (1 + N_child)
-    return (node_q_value(child) + c_puct * child["prior"] * math.sqrt(parent["visit_count"]) /  (1 + child["visit_count"]))
+    # Child values are from the child's player's perspective, so negate Q when comparing the child from the parent's perspective.
+    return (-node_q_value(child) + c_puct * child["prior"] * math.sqrt(parent["visit_count"]) / (1 + child["visit_count"]))
 
 # Step 30 - select_best_child
 def select_best_child(node, legal_actions, c_puct=1.5):
@@ -731,12 +731,3 @@ def evaluate_net_against_net(net_one, net_two, num_matches, seed=None):
         alternate_starts=True)
     print("Greedy-net-one vs greedy-net-two:", match_results)
     return match_results
-
-# Step 59 - evaluate_against_human
-def evaluate_against_human(net, num_matches):
-    """Allow a human player to play against the trained policy-value network.
-    Human player can click a column or press a key from 1-7 to drop a piece,
-    and the network plays greedily in an animated graphical interface.
-    """
-    from connect4_gui import play_against_network
-    return play_against_network(net, num_matches=num_matches)
