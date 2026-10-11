@@ -4,15 +4,11 @@ import tkinter as tk
 from tkinter import messagebox
 
 import numpy as np
-import torch
 
 from model import (
-    action_mask,
-    encode_board,
-    greedy_agent_action,
     is_terminal,
     make_empty_board,
-    masked_policy_logits,
+    mcts_choose_action,
     step_env,
     valid_moves,
 )
@@ -26,11 +22,24 @@ class Connect4GUI:
     CELL_SIZE = 84
     BOARD_PADDING = 24
     PIECE_RADIUS = 30
+    MCTS_SIMULATIONS = 8
+    MCTS_C_PUCT = 1.5
+    MCTS_TEMPERATURE = 1.0
     COLORS = {0: "#f5f7fb", 1: "#ff5c5c", 2: "#ffd166"}
 
-    def __init__(self, net, num_matches=1):
+    def __init__(
+        self,
+        net,
+        num_matches=1,
+        num_simulations=MCTS_SIMULATIONS,
+        c_puct=MCTS_C_PUCT,
+        temperature=MCTS_TEMPERATURE,
+    ):
         self.net = net
         self.num_matches = max(1, int(num_matches))
+        self.mcts_simulations = int(num_simulations)
+        self.mcts_c_puct = float(c_puct)
+        self.mcts_temperature = float(temperature)
         self.match_number = 0
         self.results = {"wins": 0, "losses": 0, "draws": 0}
         self.board = make_empty_board()
@@ -186,14 +195,14 @@ class Connect4GUI:
         self._animation_job = None
         if self.game_over:
             return
-        encoded = torch.from_numpy(encode_board(self.board, 2)).unsqueeze(0)
-        self.net.eval()
-        with torch.no_grad():
-            logits, _ = self.net(encoded)
-        probabilities = torch.softmax(
-            masked_policy_logits(logits, action_mask(self.board)), dim=-1
-        )[0].numpy()
-        column = greedy_agent_action(self.net, self.board, 2)
+        column, probabilities = mcts_choose_action(
+            self.board,
+            to_play=2,
+            net=self.net,
+            num_simulations=self.mcts_simulations,
+            c_puct=self.mcts_c_puct,
+            temperature=self.mcts_temperature,
+        )
         self.ai_column = column
         policy_text = "  ".join(
             f"{index + 1}: {probability:.0%}" for index, probability in enumerate(probabilities)
@@ -283,6 +292,18 @@ class Connect4GUI:
         return True
 
 
-def play_against_network(net, num_matches=1):
+def play_against_network(
+    net,
+    num_matches=1,
+    num_simulations=Connect4GUI.MCTS_SIMULATIONS,
+    c_puct=Connect4GUI.MCTS_C_PUCT,
+    temperature=Connect4GUI.MCTS_TEMPERATURE,
+):
     """Open the graphical human-vs-network evaluator."""
-    return Connect4GUI(net, num_matches=num_matches).run()
+    return Connect4GUI(
+        net,
+        num_matches=num_matches,
+        num_simulations=num_simulations,
+        c_puct=c_puct,
+        temperature=temperature,
+    ).run()
