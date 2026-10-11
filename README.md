@@ -21,8 +21,11 @@ are shown while it decides.
 After training a different network, pass its checkpoint and architecture:
 
 ```bash
-python play_connect4.py --checkpoint path/to/network.pth --hidden_channels 16
+python play_connect4.py --checkpoint path/to/network.pth --hidden_channels 16 --num_simulations 8 
 ```
 
 The graphical evaluator is also available from `train.py --evaluate_mode human`
 after a training run.
+
+## Underlying Concepts
+
