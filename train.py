@@ -8,6 +8,8 @@ Uses functions defined in model.py.
 """
 
 import argparse
+import copy
+import os
 
 from model import *
 import numpy as np
@@ -20,8 +22,18 @@ def train_connect4(hidden_channels, batch_size, num_simulations, c_puct, tempera
     net = build_policy_value_net(in_channels=2, hidden_channels=hidden_channels, num_columns=7)
     optimizer = torch.optim.Adam(net.parameters(), lr=1e-4)
     training_history = train_loop(net, optimizer, num_iterations, num_games, num_simulations, c_puct, batch_size, num_epochs=num_epochs, temperature=temperature)
+    save_network(net, filename=f"trained_connect4_net_{hidden_channels}h_{num_simulations}s_{c_puct}c_{temperature}t.pth")
     plot_training_history(training_history)
-    evaluate_connect4(net, num_matches=5, seed=0, mode=evaluate_mode)
+    net.eval()
+    if evaluate_mode == "all":
+        evaluate_connect4(net, num_matches=5, seed=0, mode="baseline")
+        evaluate_connect4(net, num_matches=1, seed=0, mode="human")
+        # Define alt net as a copied policy value network for evaluation against the trained net
+        alt_net = copy.deepcopy(net)
+        alt_net.eval()
+        evaluate_connect4(net, alt_net=alt_net, num_matches=5, seed=0, mode="network")
+    else:
+        evaluate_connect4(net, num_matches=5, seed=0, mode=evaluate_mode)
 
 def plot_training_history(training_history):
     """Plot the total loss over the training iterations."""
@@ -33,7 +45,7 @@ def plot_training_history(training_history):
     plt.grid()
     plt.show()
 
-def evaluate_connect4(net, num_matches=1, seed=0, mode="baseline"):
+def evaluate_connect4(net, alt_net=None, num_matches=1, seed=0, mode="baseline"):
     """Evaluate the trained policy-value network against a random player. Baseline will use uniform random moves, while human will allow a human player to play against the trained network."""
     if mode == "baseline":
         print("Starting baseline evaluation against random player...")
@@ -41,6 +53,14 @@ def evaluate_connect4(net, num_matches=1, seed=0, mode="baseline"):
     elif mode == "human":
         print("Starting human vs trained network evaluation...")
         evaluate_against_human(net, num_matches)
+    elif mode == "network" and alt_net is not None:
+        print("Starting evaluation against another trained network...")
+        evaluate_net_against_net(net, alt_net, num_matches)
+
+def save_network(net, filename="trained_connect4_net.pth"):
+    """Save the trained policy-value network to a file in cwd."""
+    torch.save(net.state_dict(), filename)
+    print(f"Saved trained network to {filename}")
 
 def main():
     parser = argparse.ArgumentParser()
@@ -53,7 +73,7 @@ def main():
     parser.add_argument("--num_iterations", type=int, default=10, help="Number of training iterations as a whole.")
     parser.add_argument("--num_epochs", type=int, default=1, help="Number of iterations of the collected rollout to run.")
     parser.add_argument("--seed", type=int, default=0, help="Random seed for reproducibility.")
-    parser.add_argument("--evaluate_mode", type=str, default="baseline", choices=["baseline", "human"], help="Evaluation mode: 'baseline' for random player, 'human' for human player.")
+    parser.add_argument("--evaluate_mode", type=str, default="baseline", choices=["baseline", "human", "network", "all"], help="Evaluation mode: 'baseline' for random player, 'human' for human player. Network evaluation requires an alternate network to be provided. All will run all three evaluations.")
     args = parser.parse_args()
 
     print("==== AlphaZero on Connect-4 Training ===")

@@ -718,7 +718,25 @@ def evaluate_against_random(net, num_matches, seed=None):
     print("Greedy-net vs random:", match_results)
     return match_results
 
-# Step 58 - evaluate_against_human
-def evaluate_against_human(net):
-    """Allow a human player to play against the trained policy-value network."""
-    pass
+# Step 58 - evaluate_net_against_net
+def evaluate_net_against_net(net_one, net_two, num_matches, seed=None):
+    #  play num_matches between two greedy net agents and return the tally of wins, losses, draws for net_one
+    rng = None
+    if seed:
+        rng = np.random.default_rng(seed)
+    match_results = match_win_rate(
+        lambda state, to_play: greedy_agent_action(net_one, state, to_play), 
+        lambda state, to_play: greedy_agent_action(net_two, state, to_play),
+        num_matches,
+        alternate_starts=True)
+    print("Greedy-net-one vs greedy-net-two:", match_results)
+    return match_results
+
+# Step 59 - evaluate_against_human
+def evaluate_against_human(net, num_matches):
+    """Allow a human player to play against the trained policy-value network.
+    Human player can click a column or press a key from 1-7 to drop a piece,
+    and the network plays greedily in an animated graphical interface.
+    """
+    from connect4_gui import play_against_network
+    return play_against_network(net, num_matches=num_matches)
