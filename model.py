@@ -719,15 +719,12 @@ def evaluate_against_random(net, num_matches, seed=None):
     return match_results
 
 # Step 58 - evaluate_net_against_net
-def evaluate_net_against_net(net_one, net_two, num_matches, seed=None):
-    #  play num_matches between two greedy net agents and return the tally of wins, losses, draws for net_one
-    rng = None
-    if seed:
-        rng = np.random.default_rng(seed)
+def evaluate_net_against_net(net_one, net_two, num_matches, num_simulations=50, c_puct=1.5, temperature=1.0):
+    #  play num_matches between two mcts-driven (non greedy) networks and return the win/loss/draw tally for net_one
     match_results = match_win_rate(
-        lambda state, to_play: greedy_agent_action(net_one, state, to_play), 
-        lambda state, to_play: greedy_agent_action(net_two, state, to_play),
+        lambda state, to_play: mcts_choose_action(state, to_play, net_one, num_simulations, c_puct, temperature)[0],
+        lambda state, to_play: mcts_choose_action(state, to_play, net_two, num_simulations, c_puct, temperature)[0],
         num_matches,
         alternate_starts=True)
-    print("Greedy-net-one vs greedy-net-two:", match_results)
+    print("Net-one vs net-two:", match_results)
     return match_results
