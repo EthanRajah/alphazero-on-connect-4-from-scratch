@@ -24,7 +24,7 @@ def train_connect4(hidden_channels, learning_rate, batch_size, num_simulations, 
     training_history = train_loop(net, optimizer, num_iterations, num_games, num_simulations, c_puct, batch_size, num_epochs=num_epochs, temperature=temperature)
     # Save the trained network and plot the training history
     train_dir = "trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(hidden_channels, batch_size, learning_rate, num_simulations, c_puct, temperature, num_games, num_iterations, num_epochs)
-    os.makedirs(train_dir, exist_ok=True)
+    os.makedirs("training/{}".format(train_dir), exist_ok=True)
     save_network(net, filename="trained_connect4_net.pth", save_dir=train_dir)
     plot_training_history(training_history, save_dir=train_dir)
     # Run evaluations with greedy play against random
@@ -76,24 +76,24 @@ def load_network(filename="trained_connect4_net.pth", load_dir=".", hidden_chann
 def hyperparameter_tuning():
     """Run a hyperparameter tuning loop to find the best combination of parameters for training."""
     # Network parameters
-    hidden_channels_list = [8, 16, 24]
-    batch_size_list = [4, 8, 16]
-    learning_rate_list = [5e-3, 1e-4, 5e-4]
+    # hidden_channels_list = [8, 16, 24]
+    # batch_size_list = [4, 8, 16]
+    # learning_rate_list = [5e-3, 1e-4, 5e-4]
     # MCTS parameters
     num_simulations_list = [25] # MCTS strength
     num_games_list = [20] # Data volume per iteration
     num_iterations_list = [5]
-    num_epochs_list = [3]
+    num_epochs_list = [5]
 
     # Network parameters - tuned first indepdently of MCTS parameters
     hidden_channels_list = [16]
     batch_size_list = [8]
-    learning_rate_list = [5e-3]
+    learning_rate_list = [5e-4]
     # MCTS parameters
-    # num_simulations_list = [25, 50, 100, 250, 500] # MCTS strength
-    # num_games_list = [5, 10, 20, 50] # Data volume per iteration
-    # num_iterations_list = [5, 10, 15, 20]
-    # num_epochs_list = [5, 10, 15]
+    num_simulations_list = [25, 50, 100, 250, 500] # MCTS strength
+    num_games_list = [5, 10, 20, 50] # Data volume per iteration
+    num_iterations_list = [5, 10, 15, 20]
+    num_epochs_list = [5, 10, 15]
 
     best_loss = float("inf")
     best_params = None
@@ -132,7 +132,7 @@ def hyperparameter_tuning():
                                 prev_net = None
                                 if best_params is not None:
                                     # Load the previous best network for head-to-head evaluation.
-                                    previous_dir = "trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(*best_params)
+                                    previous_dir = "training/trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(*best_params)
                                     previous_filename = "trained_connect4_net.pth"
                                     prev_net = load_network(filename=previous_filename, load_dir=previous_dir, hidden_channels=best_params[0])
                                 # Update best loss and parameters if the current configuration is better
@@ -141,7 +141,7 @@ def hyperparameter_tuning():
                                     print(f"New best params found: {best_params} with loss {best_loss}")
                                     # Run evaluation only when a previous best exists.
                                     if prev_net is not None:
-                                        current_dir = "trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(*best_params)
+                                        current_dir = "training/trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(*best_params)
                                         current_filename = "trained_connect4_net.pth"
                                         net = load_network(filename=current_filename, load_dir=current_dir, hidden_channels=best_params[0])
                                         eval_results = evaluate_net_against_net(net, prev_net, num_matches=10)

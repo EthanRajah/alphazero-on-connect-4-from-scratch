@@ -29,3 +29,15 @@ after a training run.
 
 ## Underlying Concepts
 
+Connect 4 is a two-player game played on a 6-row, 7-column grid, with players alternating turns dropping pieces into columns. The first player to connect four of their pieces in a row (horizontally, vertically, or diagonally) wins. If the board fills up without a winner, the game is a draw. This can be modelled as a zero-sum game, making it suitable for reinforcement learning.
+
+Following the framework of AlphaZero, we can use Monte Carlo Tree Search (MCTS) to simulate games and determine the best actions that lead to a win. MCTS has 3 main steps:
+1. **Selection**: Starting from the root node, select child nodes based on a balance of exploration and exploitation until reaching a leaf node.
+2. **Expansion & Evaluation**: If the leaf node is not terminal (winning/losing/drawing state), expand it by adding all possible child nodes (legal moves). Evaluate the new leaf nodes to estimate their value in terms of how likely they are to lead to a win.
+3. **Backpropagation**: Update the value estimates of all nodes along the path from the leaf node back to the root based on the evaluation results.
+
+A couple of key questions arise when attempting to apply MCTS to Connect 4:
+1. How do we actually evaluate the leaf nodes to determine their value? Do we need to simulate the game to the end and then make some estimate for that node? That could get really expensive if we abstracted this to a more complex game like chess or go.
+2. With the wide range of possible moves and state space, how do we ensure that our MCTS is efficient and doesn't waste time exploring unpromising branches of the tree? I'd want to have my algorithm be able to beat me as fast as possible, and that means making sure it doesn't even consider bad moves.
+
+
