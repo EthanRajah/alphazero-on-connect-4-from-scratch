@@ -23,8 +23,7 @@ def train_connect4(hidden_channels, learning_rate, batch_size, num_simulations, 
     optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)
     training_history = train_loop(net, optimizer, num_iterations, num_games, num_simulations, c_puct, batch_size, num_epochs=num_epochs, temperature=temperature)
     # Save the trained network and plot the training history
-    train_dir = "trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(hidden_channels, batch_size, learning_rate, num_simulations, c_puct, temperature, num_games, num_iterations, num_epochs)
-    os.makedirs("training/{}".format(train_dir), exist_ok=True)
+    train_dir = "training/trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(hidden_channels, batch_size, learning_rate, num_simulations, c_puct, temperature, num_games, num_iterations, num_epochs)
     save_network(net, filename="trained_connect4_net.pth", save_dir=train_dir)
     plot_training_history(training_history, save_dir=train_dir)
     # Run evaluations with greedy play against random
@@ -80,10 +79,10 @@ def hyperparameter_tuning():
     # batch_size_list = [4, 8, 16]
     # learning_rate_list = [5e-3, 1e-4, 5e-4]
     # MCTS parameters
-    num_simulations_list = [25] # MCTS strength
-    num_games_list = [20] # Data volume per iteration
-    num_iterations_list = [5]
-    num_epochs_list = [5]
+    # num_simulations_list = [25] # MCTS strength
+    # num_games_list = [20] # Data volume per iteration
+    # num_iterations_list = [5]
+    # num_epochs_list = [5]
 
     # Network parameters - tuned first indepdently of MCTS parameters
     hidden_channels_list = [16]
@@ -144,9 +143,9 @@ def hyperparameter_tuning():
                                         current_dir = "training/trained_connect4_net_{}h_{}b_{}lr_{}s_{}c_{}t_{}g_{}i_{}e".format(*best_params)
                                         current_filename = "trained_connect4_net.pth"
                                         net = load_network(filename=current_filename, load_dir=current_dir, hidden_channels=best_params[0])
-                                        eval_results = evaluate_net_against_net(net, prev_net, num_matches=10)
-                                        # Only update the current network as being the best if it is better than the previous best in evaluation
-                                        if eval_results["wins"] > eval_results["losses"]:
+                                        eval_results = evaluate_net_against_net(net, prev_net, num_matches=25)
+                                        # Only update the current network as being the best if it is better than or equal to the previous best in evaluation
+                                        if eval_results["wins"] >= eval_results["losses"]:
                                             best_loss = avg_loss
                                             best_params = (hidden_channels, batch_size, learning_rate, num_simulations, 1.5, 1.0, num_games, num_iterations, num_epochs)
                                     else:
