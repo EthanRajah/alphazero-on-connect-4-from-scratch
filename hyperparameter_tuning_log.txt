@@ -1,0 +1,1401 @@
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.3624943906869236
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 2.3624943906869236
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 5)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.183752084054644
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 2.183752084054644
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 10)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 13, 'losses': 12, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.5182119183060612
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 13, 'losses': 12, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.1000618638801685
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.048626949931636
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.540664366748914
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.6392312524415904
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.5396634410699315
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.6410132256035832
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.398133885421148
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=20, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.5716992467851545
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=20, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3029878439263745
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.7937438990444576
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.7116530461346493
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.4772155744429918
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.9345556242382531
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.9422537182551298
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.2406195667446027
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.8689200792050373
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.2860905256888047
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.0352004289147556
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3152627769463183
+Baseline evaluation: {'wins': 1, 'losses': 4, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=20, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.5374877457089495
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=20, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.9810552143153473
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.6475632899877848
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.309020888634266
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.4658691417279006
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.5332431363247987
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.2473683299339888
+Baseline evaluation: {'wins': 1, 'losses': 4, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.4335549140276562
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.9696231741675821
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.305700581488254
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.9524835612290435
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.300143442692119
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=20, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.9302140810915036
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=20, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.1542877980991986
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.2591357596496306
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.8111971701516034
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.975112318828593
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.005211837791307
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.1182127904308155
+Baseline evaluation: {'wins': 1, 'losses': 4, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.7526204908909626
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.115892357571645
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.8034846578417765
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.701499789041309
+Baseline evaluation: {'wins': 1, 'losses': 4, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.288967889859984
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=20, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.7129337386312171
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=25, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=20, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.9767484191579981
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.3568069865584533
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.336229075440994
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.8258757156616165
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.9236539636165806
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.604048557661601
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.076073860114418
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.9398190831139843
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3920674114261304
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.0676658885445838
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.335186783955642
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=20, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.666461919184648
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=5, num_iterations=20, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3849107549518371
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.8681175501462441
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3980940722060495
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3384735664529996
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.6543779014143858
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.1843967875985126
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.7555402185357116
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.4877462475069008
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 2.035767647316153
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.2887446261009914
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.7256157849277116
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: not run
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=20, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3777468148836696
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=10, num_iterations=20, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.0493244689198886
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.462485328227967
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.450823581294387
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.4626224384594848
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.212107316698887
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.087634749778809
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.1291516825223151
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.252955021428707
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.8376211285248126
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.8239483359752924
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.3734570234732058
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=20, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.8176794803227123
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=20, num_iterations=20, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.7927718739516656
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=5, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.1913741575649721
+Baseline evaluation: {'wins': 2, 'losses': 3, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=5, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.9650876385788913
+Baseline evaluation: {'wins': 3, 'losses': 2, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=5, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.0696093868971952
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=10, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.135783497577362
+Baseline evaluation: {'wins': 1, 'losses': 4, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=10, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 1.0772955717788995
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=10, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.9973787848906845
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=15, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.8333696792361918
+Baseline evaluation: {'wins': 5, 'losses': 0, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=15, num_epochs=10
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.8583778002328218
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=15, num_epochs=15
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
+TRAINING RESULTS
+Average loss: 0.7200795686901321
+Baseline evaluation: {'wins': 4, 'losses': 1, 'draws': 0}
+Best loss so far: 1.5182119183060612
+Best parameters so far: (16, 8, 0.0005, 25, 1.5, 1.0, 5, 5, 15)
+
+EVALUATION RESULTS
+Against previous best network: {'wins': 12, 'losses': 13, 'draws': 0}
+================================================================================
+
+================================================================================
+CONFIGURATION
+hidden_channels=16, batch_size=8, learning_rate=0.0005, num_simulations=50, c_puct=1.5, temperature=1.0, num_games=50, num_iterations=20, num_epochs=5
+--------------------------------------------------------------------------------
+TRAINING IN PROGRESS
