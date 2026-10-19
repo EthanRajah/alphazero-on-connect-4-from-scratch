@@ -196,18 +196,18 @@ def main():
 
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
-    # training_history, evaluate_results = train_connect4(
-    #     hidden_channels=args.hidden_channels,
-    #     learning_rate=args.learning_rate,
-    #     batch_size=args.batch_size,
-    #     num_simulations=args.num_simulations,
-    #     c_puct=args.c_puct,
-    #     temperature=args.temperature,
-    #     num_games=args.num_games,
-    #     num_iterations=args.num_iterations,
-    #     num_epochs=args.num_epochs
-    # )
-    hyperparameter_tuning()
+    training_history, evaluate_results = train_connect4(
+        hidden_channels=args.hidden_channels,
+        learning_rate=args.learning_rate,
+        batch_size=args.batch_size,
+        num_simulations=args.num_simulations,
+        c_puct=args.c_puct,
+        temperature=args.temperature,
+        num_games=args.num_games,
+        num_iterations=args.num_iterations,
+        num_epochs=args.num_epochs
+    )
+    # hyperparameter_tuning()
 
 if __name__ == "__main__":
     main()
