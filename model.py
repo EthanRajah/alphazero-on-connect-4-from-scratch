@@ -421,6 +421,8 @@ def run_one_simulation(root, net, c_puct):
 
 def add_dirichlet_noise(root, alpha=1.0, eps=0.25):
     # Exploration noise for root priors: sample from Dirichlet and mix with existing priors
+    if not root["is_expanded"]:
+        raise ValueError("Root node must be expanded before adding noise")
     actions = list(root["children"].keys())
     noise = np.random.dirichlet([alpha] * len(actions))
     for a, n in zip(actions, noise):
@@ -462,13 +464,15 @@ def visit_count_policy(root, temperature=1.0):
         return np.full((7,), 1/7)
 
 # Step 38 - mcts_choose_action
-def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature=1.0, add_noise=False, move_idx=0):
+def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature=1.0, add_noise=False, move_idx=None):
     #  Run MCTS at the given state and return (action, visit-count policy vector).
     mcts_root = run_mcts(state, to_play, net, num_simulations, c_puct, add_noise)
     visit_count_action_probs = visit_count_policy(mcts_root, temperature)
-    if move_idx < 8:
+    if move_idx is not None and move_idx < 8:
+        # Exploration phase: sample an action from the visit count probabilities
         action = int(np.random.choice(7, p=visit_count_action_probs))
     else:
+        # Greedy phase: choose the action with the highest visit count probability (later in the game, exploit the learned policy)
         action = int(np.argmax(visit_count_action_probs))
     return action, visit_count_action_probs
 
