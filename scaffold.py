@@ -104,14 +104,15 @@ if __name__ == "__main__":
 
     # --- Terminal board check to ensure policy is also blocking winning moves ---
     loaded_net = build_policy_value_net(in_channels=2, hidden_channels=16, num_columns=7)
-    loaded_net.load_state_dict(torch.load("trained_connect4_net_16h_100s_1.5c_1.0t.pth", map_location="cpu", weights_only=True))
+    loaded_net.load_state_dict(torch.load("training/trained_connect4_net_16h_8b_0.0001lr_200s_1.5c_1.0t_25g_50i_10e/trained_connect4_net.pth", map_location="cpu", weights_only=True))
     loaded_net.eval()
     # Create a board where player 1 is about to win and check if the policy blocks
     board = make_empty_board()
     board = drop_piece(board, 0, 1)
-    board = drop_piece(board, 0, 1)
-    board = drop_piece(board, 0, 1)
     board = drop_piece(board, 1, 2)
+    board = drop_piece(board, 0, 1)
+    board = drop_piece(board, 2, 2)
+    board = drop_piece(board, 0, 1)
     action, pi = _debug_root_search(
         board,
         to_play=2,

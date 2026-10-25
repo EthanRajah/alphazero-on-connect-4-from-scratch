@@ -419,16 +419,24 @@ def run_one_simulation(root, net, c_puct):
     # Backup step
     backup_value(leaf_node, value)
 
+def add_dirichlet_noise(root, alpha=1.0, eps=0.25):
+    # Exploration noise for root priors: sample from Dirichlet and mix with existing priors
+    actions = list(root["children"].keys())
+    noise = np.random.dirichlet([alpha] * len(actions))
+    for a, n in zip(actions, noise):
+        child = root["children"][a]
+        child["prior"] = (1 - eps) * child["prior"] + eps * n
+
 # Step 36 - run_mcts
-def run_mcts(state, to_play, net, num_simulations, c_puct):
+def run_mcts(state, to_play, net, num_simulations, c_puct, add_noise=False):
     #  build a fresh root for (state, to_play) and run num_simulations PUCT simulations
     # Init root node
     root = make_mcts_node()
-    root["board"] = state
-    root["to_play"] = to_play
-    root["is_expanded"] = False
-    # Run num_simulations of MCTS
-    for _ in range(num_simulations):
+    root["board"], root["to_play"], root["is_expanded"] = state, to_play, False
+    run_one_simulation(root, net, c_puct) # Expand the root once for noise addition
+    if add_noise:
+        add_dirichlet_noise(root)
+    for _ in range(num_simulations - 1):
         run_one_simulation(root, net, c_puct)
     return root
 
@@ -454,11 +462,14 @@ def visit_count_policy(root, temperature=1.0):
         return np.full((7,), 1/7)
 
 # Step 38 - mcts_choose_action
-def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature=1.0):
+def mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature=1.0, add_noise=False, move_idx=0):
     #  Run MCTS at the given state and return (action, visit-count policy vector).
-    mcts_root = run_mcts(state, to_play, net, num_simulations, c_puct)
+    mcts_root = run_mcts(state, to_play, net, num_simulations, c_puct, add_noise)
     visit_count_action_probs = visit_count_policy(mcts_root, temperature)
-    action = int(np.argmax(visit_count_action_probs))
+    if move_idx < 8:
+        action = int(np.random.choice(7, p=visit_count_action_probs))
+    else:
+        action = int(np.argmax(visit_count_action_probs))
     return action, visit_count_action_probs
 
 # Step 39 - record_self_play_step
@@ -468,20 +479,22 @@ def record_self_play_step(history, board, policy, to_play):
     return history
 
 # Step 40 - play_self_play_game
-def play_self_play_game(net, num_simulations, c_puct, temperature=1.0):
+def play_self_play_game(net, num_simulations, c_puct, temperature=1.0, add_noise=True):
     #  play one Connect-4 game with both sides driven by MCTS, recording every step
     state = make_empty_board()
     to_play = 1
     history = []
     done = False
     winner = 0
+    move_idx = 0
     while not done:
         # Decide on action
-        action, action_probs = mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature)
+        action, action_probs = mcts_choose_action(state, to_play, net, num_simulations, c_puct, temperature, add_noise=add_noise, move_idx=move_idx)
         # Record board state and action probabilities before action is placed
         history = record_self_play_step(history, state, action_probs, to_play)
         # Make action (step environment state)
         state, done, winner, to_play = step_env(state, action, to_play)
+        move_idx += 1
     return history, winner
 
 # Step 41 - assign_value_targets
