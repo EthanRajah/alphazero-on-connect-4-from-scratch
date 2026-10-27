@@ -2,6 +2,10 @@
 
 Built a complete AlphaZero-style agent for Connect-4, from the bare game rules to a self-play training loop that pits a policy-value network guided by PUCT Monte Carlo Tree Search against itself. Implemented the board engine, neural network, MCTS, self-play data generation, training, and evaluation against baselines.
 
+![Connect4 gameplay](assets/connect4_demo.gif)
+
+*Network playing against a human expert (me lol), with the policy decision distribution shown after each move.*
+
 ## How to run
 
 ```bash
@@ -39,5 +43,4 @@ Following the framework of AlphaZero, we can use Monte Carlo Tree Search (MCTS) 
 A couple of key questions arise when attempting to apply MCTS to Connect 4:
 1. How do we actually evaluate the leaf nodes to determine their value? Do we need to simulate the game to the end and then make some estimate for that node? That could get really expensive if we abstracted this to a more complex game like chess or go.
 2. With the wide range of possible moves and state space, how do we ensure that our MCTS is efficient and doesn't waste time exploring unpromising branches of the tree? I'd want to have my algorithm be able to beat me as fast as possible, and that means making sure it doesn't even consider bad moves.
-
 
