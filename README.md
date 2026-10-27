@@ -2,8 +2,6 @@
 
 Built a complete AlphaZero-style agent for Connect-4, from the bare game rules to a self-play training loop that pits a policy-value network guided by PUCT Monte Carlo Tree Search against itself. Implemented the board engine, neural network, MCTS, self-play data generation, training, and evaluation against baselines.
 
-https://github.com/user-attachments/assets/3d019cde-f949-4f2a-a09d-2ae04a66226a
-
 ## How to run
 
 ```bash
