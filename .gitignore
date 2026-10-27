@@ -2,3 +2,5 @@
 venv/
 .env
 training/
+pycache/
+.python-version
