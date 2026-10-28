@@ -26,7 +26,6 @@ def load_saved_network(checkpoint):
     net.eval()
     return net
 
-
 def find_network_checkpoints(root):
     """Find checkpoints directly in root and in legacy training directories."""
     checkpoints = [
@@ -39,6 +38,9 @@ def find_network_checkpoints(root):
             checkpoints.append(directory / "trained_connect4_net.pth")
     return sorted(set(checkpoints))
 
+def checkpoint_label(checkpoint):
+    """Return a checkpoint name that identifies its containing network folder."""
+    return f"{checkpoint.parent.name}/{checkpoint.name}"
 
 def main():
     parser = argparse.ArgumentParser(
@@ -80,8 +82,8 @@ def main():
     for challenger_checkpoint in checkpoints[1:]:
         challenger = load_saved_network(challenger_checkpoint)
         print(f"\nEvaluating champion against challenger:")
-        print(f"  Champion:   {champion_checkpoint.name}")
-        print(f"  Challenger: {challenger_checkpoint.name}")
+        print(f"  Champion:   {checkpoint_label(champion_checkpoint)}")
+        print(f"  Challenger: {checkpoint_label(challenger_checkpoint)}")
         result = evaluate_net_against_net(
             champion,
             challenger,
@@ -113,7 +115,7 @@ def main():
     )
     print("\nTOURNAMENT WINNER")
     print("=================")
-    print(champion_checkpoint.name)
+    print(checkpoint_label(champion_checkpoint))
     print(
         f"Final round: wins={champion_record['wins']} "
         f"losses={champion_record['losses']} "
