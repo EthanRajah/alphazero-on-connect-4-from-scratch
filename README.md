@@ -88,4 +88,4 @@ The best trained network achieved the following results with 50 MCTS simulations
 
 This emphasizes that even with enough context, simply throwing LLMs at a problem is not enough to achieve strong performance at a task, but rather, algorithmic approaches combined with other types of trained networks, especially cheaper and more efficient ones, can be more effective in solving the problem. This is especially true for problems with large search spaces, where LLMs alone are not able to search the space effectively and efficiently, and thus cannot make optimal decisions.
 
-The effects of number of MCTS simulations per move on the network's performance is apparent when increasing to 100 or more, as the win rate against human players increases to 100\%.
+The effects of number of MCTS simulations per move on the network's performance is apparent when increasing to 100 or more, as the win rate against human players increases to 100\%. However, this demonstrates that further hyperparameter tuning and network architecture improvements are possible to achieve strong performance with fewer simulations, and can be explored in future work.
