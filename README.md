@@ -83,7 +83,7 @@ The best trained network achieved the following results with 50 MCTS simulations
 
 | Opponent | Result | Notes |
 |---|---|---|
-| Human expert (myself) | 90\% | The network's losses were consistently due to missed terminal state blocking moves, where the network's policy prediction couldn't completely compensate for with that number of simulated visits. |
+| Human expert | 90\% | The network's losses were consistently due to missed terminal state blocking moves, where the network's policy prediction couldn't completely compensate for with that number of simulated visits. |
 | Qwen-3.5-9B | 100\% | The LLM was able to select winning moves in some cases, but was not able to consistently block the network's winning moves due to its inability to search future game states and evaluate the consequences of its and its opponent's actions. An example of the prompts used and LLM reasoning for its move selection can be found in [`logs/prompts.log`](logs/prompts.log), and the full game logs can be found in [`logs/game.log`](logs/game.log). |
 
 This emphasizes that even with enough context, simply throwing LLMs at a problem is not enough to achieve strong performance at a task, but rather, algorithmic approaches combined with other types of trained networks, especially cheaper and more efficient ones, can be more effective in solving the problem. This is especially true for problems with large search spaces, where LLMs alone are not able to search the space effectively and efficiently, and thus cannot make optimal decisions.
