@@ -4,3 +4,4 @@ venv/
 training/
 pycache/
 .python-version
+.DS_Store
