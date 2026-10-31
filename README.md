@@ -12,17 +12,8 @@ Built a complete AlphaZero-style agent for Connect-4, from the bare game rules t
 python train.py --hidden_channels 24 --batch_size 8 --num_simulations 200 --num_games 50 --num_iterations 50 --num_epochs 10
 ```
 
-To play against the included trained network with the graphical interface:
-
-```bash
-python play_connect4.py
-```
-
-The board accepts mouse clicks or the number keys `1` through `7`. Pieces
-animate into place, and the network's selected column and policy probabilities
-are shown while it decides.
-
-After training a different network, pass its checkpoint and architecture:
+To play against a trained network with a graphical interface, use `play_connect4.py`. The board accepts mouse clicks or the number keys `1` through `7`. Pieces
+animate into place, and the network's selected column and policy probabilities are shown while it decides. After training a network, pass its checkpoint and architecture:
 
 ```bash
 python play_connect4.py --checkpoint path/to/network.pth --hidden_channels 24 --num_simulations 100 
@@ -88,7 +79,13 @@ To evaluate the performance of the trained policy-value network during hyperpara
 - Human: A human player, allowing for evaluation of the network's performance against a real opponent. The human player can select moves using the graphical interface, and the network plays with a defined number of MCTS simulations per move (the lower number of simulations, while still remaining strong, the better the network is).
 - LLM: Using Ollama to run Qwen-3.5-9B on an M3 MacBook Pro, with custom system and user prompts to play Connect 4 with its own move history. The LLM is prompted to select moves based on the current board state, and the network plays with a defined number of MCTS simulations per move. The LLM is also prompted to provide reasoning for its move selection, allowing for evaluation of its decision-making process.
 
-The best trained network with 50 MCTS simulations per move achieved a win rate of **90\% out of 20 games against a human expert (myself)**, and a win rate of **100\% out of 20 games against Qwen-3.5-9B** with 50 MCTS simulations per move. The LLM was able to select winning moves in some cases, but was not able to consistently block the network's winning moves due to its inability to search future game states and evaluate the consequences of it and its opponeent's actions. An example of the prompts used and LLM reasoning for its move selection can be found in the `logs/prompts.log` file, and the full game logs can be found in the `logs/game.log` file. This emphasizes that even with enough context, simply throwing LLMs at a problem is not enough to achieve strong performance at a task, but rather, algorithmic approaches combined with other types of trained networks, especially cheaper and more efficient ones, can be more effective in solving the problem. This is especially true for problems with large search spaces, where LLMs alone are not able to search the space effectively and efficiently, and thus cannot make optimal decisions.
+The best trained network achieved the following results with 50 MCTS simulations per move:
+
+| Opponent | Result | Notes |
+|---|---|---|
+| Human expert (myself) | **90\% out of 20 games** | — |
+| Qwen-3.5-9B | **100\% out of 20 games** | The LLM was able to select winning moves in some cases, but was not able to consistently block the network's winning moves due to its inability to search future game states and evaluate the consequences of its and its opponent's actions. An example of the prompts used and LLM reasoning for its move selection can be found in [`logs/prompts.log`](logs/prompts.log), and the full game logs can be found in [`logs/game.log`](logs/game.log). |
+
+This emphasizes that even with enough context, simply throwing LLMs at a problem is not enough to achieve strong performance at a task, but rather, algorithmic approaches combined with other types of trained networks, especially cheaper and more efficient ones, can be more effective in solving the problem. This is especially true for problems with large search spaces, where LLMs alone are not able to search the space effectively and efficiently, and thus cannot make optimal decisions.
 
 The effects of number of MCTS simulations per move on the network's performance is apparent when increasing to 100 or more, as the win rate against human players increases to 100\%. This is expected as the network's losses with 50 simulations were consistently due to missed terminal state blocking moves, which the network couldn't completely compensate for with that number of simulated visits.
-
