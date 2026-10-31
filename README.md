@@ -4,7 +4,7 @@ Built a complete AlphaZero-style agent for Connect-4, from the bare game rules t
 
 ![Connect4 gameplay](assets/connect4_demo.gif)
 
-*Network playing against a human expert (me lol), with the policy decision distribution shown after each move.*
+*Network playing (and winning) against a human expert (me lol), with the policy decision distribution shown after each move.*
 
 ## How to run
 
