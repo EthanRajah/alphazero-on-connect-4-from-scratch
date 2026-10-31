@@ -63,7 +63,7 @@ One can observe that the policy network is improved with more accurate visit cou
 
 While further testing and tuning of the network architecture is possible, my current best implementation uses a small convolutional neural network backbone with 4 convolutional layers, each followed by a ReLU activation function. The latents from the backbone are then fed into two seperate MLPs, one for the policy head, outputting a probability distribution over the 7 possible actions, and one for the value head, outputting a scalar value representing the expected outcome of the game from that state.
 
-![Network architecture diagram](assets/network_architecture.png)
+![Network architecture diagram](assets/network_diagram.png)
 
 ## Experiments and Evaluation
 
